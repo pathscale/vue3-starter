@@ -1,6 +1,7 @@
 <script>
 
-import { VButton } from "@pathscale/vue3-ui"
+// import { VButton } from "@pathscale/vue3-ui" It does not work
+import { VButton } from "@pathscale/vue3-ui/dist/bundle" // It works
 
 export default {
   name: 'DevShowcaseButton',
