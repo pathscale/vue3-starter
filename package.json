@@ -8,6 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@pathscale/bulma-extensions-css-var": "0.0.35",
+    "@pathscale/bulma-pull-2981-css-var-only": "^0.9.3",
+    "@pathscale/vue3-ui": "^0.8.101",
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0"
   },

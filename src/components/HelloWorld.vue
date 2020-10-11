@@ -1,58 +1,102 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
-</template>
-
 <script>
+
+import { VButton } from "@pathscale/vue3-ui"
+
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: 'DevShowcaseButton',
+  components: {
+    VButton
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<template>
+  <section>
+    <div class="buttons">
+      <v-button type="is-primary">
+        Primary
+      </v-button>
+      <v-button type="is-success">
+        Success
+      </v-button>
+      <v-button type="is-danger">
+        Danger
+      </v-button>
+      <v-button type="is-warning">
+        Warning
+      </v-button>
+      <v-button type="is-info">
+        Info
+      </v-button>
+      <v-button type="is-link">
+        Link
+      </v-button>
+      <v-button type="is-light">
+        Light
+      </v-button>
+      <v-button type="is-dark">
+        Dark
+      </v-button>
+      <v-button type="is-text">
+        Text
+      </v-button>
+    </div>
+
+    <div class="buttons">
+      <v-button disabled>
+        Disabled
+      </v-button>
+      <v-button loading>
+        Loading
+      </v-button>
+      <v-button rounded>
+        Rounded
+      </v-button>
+    </div>
+
+    <div class="buttons">
+      <v-button type="is-primary" outlined>
+        Outlined
+      </v-button>
+      <v-button type="is-success" outlined>
+        Outlined
+      </v-button>
+      <v-button type="is-danger" outlined>
+        Outlined
+      </v-button>
+      <v-button type="is-warning" outlined>
+        Outlined
+      </v-button>
+    </div>
+
+    <div class="buttons">
+      <v-button type="is-primary" expanded>
+        Expanded
+      </v-button>
+    </div>
+
+    <div class="notification is-primary">
+      <div class="buttons">
+        <v-button type="is-primary" inverted>
+          Inverted
+        </v-button>
+        <v-button type="is-primary" inverted outlined>
+          Invert Outlined
+        </v-button>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <v-button size="is-small">
+        Small
+      </v-button>
+      <v-button>Default</v-button>
+      <v-button size="is-medium">
+        Medium
+      </v-button>
+      <v-button size="is-large">
+        Large
+      </v-button>
+    </div>
+  </section>
+</template>
