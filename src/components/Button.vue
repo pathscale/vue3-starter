@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 // import { useGlobalSettings } from '../../global-settings';
 
-const Button ={
+export default {
   name: 'VButton',
   props: {
     type: {
@@ -31,16 +31,14 @@ const Button ={
     light: Boolean
   },
   setup(props, { attrs }) {
-  /*
-  const settings = useGlobalSettings()
-  const computedRounded = computed(() => props.rounded === null && settings ? settings.button.rounded : props.rounded)
-  */
-  const computedTag = computed(() => attrs.disabled ? 'button' : props.tag)
-  return { computedTag }
+    /*
+    const settings = useGlobalSettings()
+    const computedRounded = computed(() => props.rounded === null && settings ? settings.button.rounded : props.rounded)
+    */
+    const computedTag = computed(() => attrs.disabled ? 'button' : props.tag)
+    return { computedTag }
   }
 }
-
-export default Button;
 </script>
 
 <template>
