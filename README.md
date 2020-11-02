@@ -1,21 +1,12 @@
-# demo
+## Usage
 
-## Project setup
-```
-npm install
-```
+This is a project template for [vue3-ui](https://vue3--dev.b-cdn.net/).
 
-### Compiles and hot-reloads for development
-```
-npm run start
-```
+``` bash
+$ npm install -g vue-cli @vue/cli-init # Install vue-cli and @vue/cli-init if you haven't already
+$ vue init pathscale/vue3-starter my-project  # Create a new project based on this template
+$ cd my-project             # Navigate into your new project folder
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+$ npm install               # Install packages
+$ npm start                 # Run app and open it in your browser
 ```
