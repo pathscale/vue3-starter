@@ -13,13 +13,15 @@ const extensions = ['.ts', '.mjs', '.js', '.vue']
 const prod = process.env.NODE_ENV === 'production'
 const watch = Boolean(process.env.ROLLUP_WATCH) || Boolean(process.env.LIVERELOAD)
 
-const template = () => {
+const template = ({ title }) => {
   return `
   <!doctype html>
   <html lang="en">
     <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
-      <title>Vue Demo</title>
+      <title>${title}</title>
+      <link rel="icon" href="favicon.ico">
     </head>
     <body>
       <div id="app"></div>
