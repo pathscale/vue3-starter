@@ -1,101 +1,27 @@
 <script>
-import { VButton } from '@pathscale/vue3-ui'
+import { VImage, VButton } from '@pathscale/vue3-ui'
 
 export default {
-  name: 'DevShowcaseButton',
-  components: {
-    VButton
-  }
+  name: 'HelloWord',
+  components: { VImage, VButton }
 }
 </script>
 
 <template>
-  <section>
-    <div class="buttons">
-      <v-button type="is-primary">
-        Primary
-      </v-button>
-      <v-button type="is-success">
-        Success
-      </v-button>
-      <v-button type="is-danger">
-        Danger
-      </v-button>
-      <v-button type="is-warning">
-        Warning
-      </v-button>
-      <v-button type="is-info">
-        Info
-      </v-button>
-      <v-button type="is-link">
-        Link
-      </v-button>
-      <v-button type="is-light">
-        Light
-      </v-button>
-      <v-button type="is-dark">
-        Dark
-      </v-button>
-      <v-button type="is-text">
-        Text
-      </v-button>
-    </div>
+  <section class="section has-text-centered">
+    <v-image centered src="https://vue3--dev.b-cdn.net/vue3-ui-logo.png" size="is-128x128" />
+    <h1 class="title">
+      Welcome to Your Vue3-ui App
+    </h1>
+    <p class="my-3">
+      For a guide and recipes on how to use our UI Components,<br />
+      check out the:
+    </p>
 
-    <div class="buttons">
-      <v-button disabled>
-        Disabled
-      </v-button>
-      <v-button loading>
-        Loading
-      </v-button>
-      <v-button rounded>
-        Rounded
-      </v-button>
-    </div>
+    <br />
 
-    <div class="buttons">
-      <v-button type="is-primary" outlined>
-        Outlined
-      </v-button>
-      <v-button type="is-success" outlined>
-        Outlined
-      </v-button>
-      <v-button type="is-danger" outlined>
-        Outlined
-      </v-button>
-      <v-button type="is-warning" outlined>
-        Outlined
-      </v-button>
-    </div>
-
-    <div class="buttons">
-      <v-button type="is-primary" expanded>
-        Expanded
-      </v-button>
-    </div>
-
-    <div class="notification is-primary">
-      <div class="buttons">
-        <v-button type="is-primary" inverted>
-          Inverted
-        </v-button>
-        <v-button type="is-primary" inverted outlined>
-          Invert Outlined
-        </v-button>
-      </div>
-    </div>
-
-    <div class="buttons">
-      <v-button size="is-small">
-        Small
-      </v-button>
-      <v-button>Default</v-button>
-      <v-button size="is-medium">
-        Medium
-      </v-button>
-      <v-button size="is-large">
-        Large
-      </v-button>
-    </div>
+    <v-button type="is-danger" rounded tag="a" href="https://vue3--dev.b-cdn.net/" target="_blank" rel="noopener">
+      Vue3-ui documentation
+    </v-button>
   </section>
 </template>
