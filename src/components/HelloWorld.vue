@@ -9,7 +9,7 @@ export default {
 
 <template>
   <section class="section has-text-centered">
-    <v-image centered src="https://vue3--dev.b-cdn.net/vue3-ui-logo.png" size="is-128x128" />
+    <v-image centered src="https://vue3.dev/vue3-ui-logo.png" size="is-128x128" />
     <h1 class="title">
       Welcome to Your Vue3-ui App
     </h1>
@@ -20,7 +20,7 @@ export default {
 
     <br />
 
-    <v-button type="is-danger" rounded tag="a" href="https://vue3--dev.b-cdn.net/" target="_blank" rel="noopener">
+    <v-button type="is-danger" rounded tag="a" href="https://vue3.dev/" target="_blank" rel="noopener">
       Vue3-ui documentation
     </v-button>
   </section>
