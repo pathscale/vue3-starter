@@ -20,7 +20,7 @@ export default {
 
     <br />
 
-    <v-button type="is-danger" rounded tag="a" href="https://vue3.dev/" target="_blank" rel="noopener">
+    <v-button type="is-primary" rounded tag="a" href="https://vue3.dev/" target="_blank" rel="noopener">
       Vue3-ui documentation
     </v-button>
   </section>
