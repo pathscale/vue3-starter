@@ -1,3 +1,6 @@
 :root {
-    --blm-prim: black;
+    --blm-prim: indigo;
+    --blm-prim-hov: blue;
+    --blm-prim-act: red;
+    --blm-prim-foc: yellow;
 }
