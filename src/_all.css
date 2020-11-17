@@ -539,6 +539,9 @@
   --blm-bd-light-s: var(--blm-grey-lightest-s);
   --blm-bd-light-l: var(--blm-grey-lightest-l);
   --blm-bd-light-a: var(--blm-grey-lightest-a);
+   
+  /* progress */ 
+
   --blm-prg-bd-radius: var(--blm-radius-rounded);
   --blm-prg-bar-bg-clr: hsla(var(--blm-prg-bar-bg-clr-h), var(--blm-prg-bar-bg-clr-s), var(--blm-prg-bar-bg-clr-l), var(--blm-prg-bar-bg-clr-a));
   --blm-prg-bar-bg-clr-h: var(--blm-bd-light-h);
@@ -551,6 +554,8 @@
   --blm-prg-value-bg-clr-l: var(--blm-txt-l);
   --blm-prg-value-bg-clr-a: var(--blm-txt-a);
   --blm-prg-indeterminate-duration: 1.5s;
+
+
   --blm-sch-main-bis: hsla(var(--blm-sch-main-bis-h), var(--blm-sch-main-bis-s), var(--blm-sch-main-bis-l), var(--blm-sch-main-bis-a));
   --blm-sch-main-bis-h: var(--blm-white-bis-h);
   --blm-sch-main-bis-s: var(--blm-white-bis-s);

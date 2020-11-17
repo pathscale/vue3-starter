@@ -103,4 +103,9 @@
   --blm-bt-txt-clr: #4a4a4a;
   --blm-bt-txt-hov-bg-clr: #f5f5f5;
   --blm-bt-txt-hov-clr: #363636;
+
+  /* Progress Colors */ 
+
+  --blm-prg-bar-bg-clr: #ededed;
+  --blm-prg-value-bg-clr: #4a4a4a;
 }
