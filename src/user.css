@@ -1,6 +1,9 @@
 :root {
-  --blm-prim-h: 352;
-  --blm-prim-s: 70%;
-  --blm-prim-l: 50%;
-  --blm-prim-a: 1;
+  --blm-prim: rgb(14, 100, 200);
+  --blm-info: purple;
+  /* --blm-sucs: #02182B; */
+  --blm-warn: #58BC82;
+  --blm-dang: #FB8A10;
+  --blm-light: white;
+  --blm-dark: black;
 }
