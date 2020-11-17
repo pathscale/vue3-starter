@@ -1,33 +1,39 @@
 # Vue3-Starter
+## Copying this project
+You can quickstart your project by [using this template](https://github.com/pathscale/vue3-starter/generate)
 
-```
-git clone git@github.com:pathscale/vue3-starter.git --depth 1
-```
+If you prefer the command line, you can install the template using [degit](https://github.com/Rich-Harris/degit)
+
+    degit pathscale/vue3-starter vue3-starter
+
+Alternatively you can use the old fashioned
+
+    git clone https://github.com/pathscale/vue3-starter.git --depth 1
 
 ## What's Included
-<li><a href="https://github.com/pathscale/vue3-ui" target="_blank" rel="noopener">Vue3-ui</a> and Bulma with CSS variables support</li>
-<li>Hot-reload</li>
-<li>Lint-on-save with ESLint</li>
-<li>JavaScript compiled and minified with google-closure-compiler.</li>
-<li>CSS across all components extracted into a single file and minified.</li>
-<li>Unused CSS removed with our PurgeCSS based <a href="https://github.com/pathscale/rollup-plugin-vue3-ui-css-purge" target="_blank" rel="noopener">plugin</a></li>
+- [Vue3-UI](https://github.com/pathscale/vue3-ui) and Bulma with css variables support
+- Hot reload
+- Linting with ESLint
+- Javascript compiled and minified with google-closure-compiler
+- CSS across all components extracted into a single file and minified
+- Unused css removed with our [custom purger plugin](https://github.com/pathscale.com/rollup-plugin-vue3-ui-css-purge)
 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Run development server with hot reload
 ```
 npm run start
 ```
 
-### Compiles and minifies for production
+## Make production ready build, minified and purged
 ```
 npm run build
 ```
 
-### Lints and fixes files
+## Scan your code for potential errors
 ```
 npm run lint
 ```
