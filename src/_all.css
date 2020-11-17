@@ -561,6 +561,9 @@
   --blm-sch-main-bis-s: var(--blm-white-bis-s);
   --blm-sch-main-bis-l: var(--blm-white-bis-l);
   --blm-sch-main-bis-a: var(--blm-white-bis-a);
+
+  /* table */ 
+  
   --blm-table-bg-clr: hsla(var(--blm-table-bg-clr-h), var(--blm-table-bg-clr-s), var(--blm-table-bg-clr-l), var(--blm-table-bg-clr-a));
   --blm-table-bg-clr-h: var(--blm-sch-main-h);
   --blm-table-bg-clr-s: var(--blm-sch-main-s);
@@ -631,6 +634,7 @@
   --blm-table-striped-row-even-bg-clr-s: var(--blm-sch-main-bis-s);
   --blm-table-striped-row-even-bg-clr-l: var(--blm-sch-main-bis-l);
   --blm-table-striped-row-even-bg-clr-a: var(--blm-sch-main-bis-a);
+
   --blm-tag-bg-clr: hsla(var(--blm-tag-bg-clr-h), var(--blm-tag-bg-clr-s), var(--blm-tag-bg-clr-l), var(--blm-tag-bg-clr-a));
   --blm-tag-bg-clr-h: var(--blm-bg-h);
   --blm-tag-bg-clr-s: var(--blm-bg-s);

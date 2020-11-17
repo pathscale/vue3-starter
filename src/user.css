@@ -108,4 +108,20 @@
 
   --blm-prg-bar-bg-clr: #ededed;
   --blm-prg-value-bg-clr: #4a4a4a;
-}
+
+  /* Table Colors */ 
+
+  --blm-table-bg-clr: white;
+  --blm-table-clr: #363636;
+  --blm-table-row-act-bg-clr: turquoise;
+  --blm-table-row-act-clr: #fff;
+  --blm-table-cell-hdg-clr: #363636;
+  --blm-table-head-bg-clr: transparent;
+  --blm-table-head-cell-clr: #363636;
+  --blm-table-foot-bg-clr: transparent;
+  --blm-table-foot-cell-clr: #363636;
+  --blm-table-body-bg-clr: transparent;
+  --blm-table-row-hov-bg-clr: #fafafa;
+  --blm-table-striped-row-even-hov-bg-clr: #f5f5f5;
+  --blm-table-striped-row-even-bg-clr: #fafafa;
+  }
