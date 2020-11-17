@@ -1,9 +1,90 @@
 :root {
-  --blm-prim: rgb(14, 100, 200);
-  --blm-info: purple;
-  /* --blm-sucs: #02182B; */
-  --blm-warn: #58BC82;
-  --blm-dang: #FB8A10;
-  --blm-light: white;
-  --blm-dark: black;
+  /* Primary colors */
+  --blm-prim: turquoise; /* will be used in all components used with is-primary variant */
+  --blm-info: cyan; /* will be used in all components used with is-info variant */
+  --blm-sucs: green; /* will style all components used with is-success variant */
+  --blm-warn: yellow; /* will style all components used with is-warning variant */
+  --blm-dang: red; /* will style all components used with is-danger variant */
+  --blm-light: white; /* will style all components used with is-light variant */
+  --blm-dark: black; /* will style all components used with is-dark */
+
+  /*  Inverted Colors
+      These will be used to style contrasting elements against their non-inverted color backgrounds.
+      For example: A button marked as is-primary will use primary-inv as the color for its text.
+  */
+  --blm-prim-inv: black;
+  --blm-info-inv: black;
+  --blm-sucs-inv: black;
+  --blm-warn-inv: black;
+  --blm-dang-inv: black;
+  --blm-light-inv: black;
+  --blm-dark-inv: black;
+
+  /*  Light colors
+      These will be used to style components marked as is-light
+      For example: A button that is marked as is-primary and is-light simultaneously will be themed up with --blm-prim-light variable
+  */
+  --blm-prim-light: black;
+  --blm-info-light: black;
+  --blm-sucs-light: black;
+  --blm-warn-light: black;
+  --blm-dang-light: black;
+
+  /*  Dark colors
+      These will be used to style components marked as is-dark
+      For example, a v-button that is marked as is-primary and is-dark simultaneously will be themed up with --blm-prim-dark variable
+  */
+  --blm-prim-dark: black;
+  --blm-info-dark: black;
+  --blm-sucs-dark: black;
+  --blm-warn-dark: black;
+  --blm-dang-dark: black;
+
+  
+  /* General Colors */
+  --blm-sch-main: white; /* affects the background color for the entire project, it targets the html tag */
+  --blm-sch-main-bis: white;
+  --blm-sch-main-ter: white;
+  --blm-sch-inv: black;
+  --blm-sch-inv-bis: black;
+  --blm-sch-inv-ter: black;
+  --blm-bg: white; /* themes the background for most components */
+  --blm-bd: grey;
+  --blm-bd-hov: grey;
+  --blm-bd-light: grey;
+  --blm-bd-light-hov: grey;
+
+  /* Text Colors */
+  --blm-txt: grey;
+  --blm-txt-inv: grey;
+  --blm-txt-light: grey;
+  --blm-txt-strong: grey;
+
+  /* Code Colors */
+  --blm-code: blue;
+  --blm-code-bg: white;
+  --blm-pre: grey;
+  --blm-pre-bg: white;
+
+  /* Link Colors */
+  --blm-link: blue;
+  --blm-link-inv: blue;
+  --blm-link-light: blue;
+  --blm-link-dark: blue;
+  --blm-link-visited: purple;
+  --blm-link-hov: gray;
+  --blm-link-hov-bd: gray;
+  --blm-link-foc: gray;
+  --blm-link-foc-bd: gray;
+  --blm-link-act: gray;
+  --blm-link-act-bd: gray;
+
+  /* Typography */
+  --blm-family-prim: "Segoe UI", "Roboto", "Arial";
+  --blm-family-secondary: "Segoe UI", "Roboto", "Arial";
+  --blm-family-code: "monospace";
+  --blm-s-small: 0.75rem;
+  --blm-s-normal: 1rem;
+  --blm-s-medium: 1.25rem;
+  --blm-s-lg: 1.5rem;
 }
