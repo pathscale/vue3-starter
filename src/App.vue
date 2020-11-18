@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <hello-world msg="Welcome to Your Vue.js App" />
+    <!-- <hello-world /> -->
+    <app-state />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import AppState from './components/AppState'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    AppState
   }
 }
 </script>

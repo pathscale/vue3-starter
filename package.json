@@ -12,7 +12,9 @@
     "prestart": "shx rm -rf dist",
     "start": "rollup -c -w --environment NODE_ENV:development"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@pathscale/appstate-fast": "0.0.4"
+  },
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
     "@pathscale/bulma-extensions-css-var": "0.0.41",
