@@ -1,4 +1,6 @@
 :root {
+  /******************** GENERIC VARIABLES ********************/
+
   /* Primary colors */
   --blm-prim: turquoise; /* will be used in all components used with is-primary variant */
   --blm-info: cyan; /* will be used in all components used with is-info variant */
@@ -8,7 +10,7 @@
   --blm-light: white; /* will style all components used with is-light variant */
   --blm-dark: black; /* will style all components used with is-dark */
 
-  /*  Inverted Colors
+  /*  Inverted colors
       These will be used to style contrasting elements against their non-inverted color backgrounds.
       For example: A button marked as is-primary will use primary-inv as the color for its text.
   */
@@ -40,8 +42,9 @@
   --blm-warn-dark: black;
   --blm-dang-dark: black;
 
-  
-  /* General Colors */
+  /* General Colors
+    These will update the body, shadows and borders
+  */
   --blm-sch-main: white; /* affects the background color for the entire project, it targets the html tag */
   --blm-sch-main-bis: white;
   --blm-sch-main-ter: white;
@@ -88,8 +91,9 @@
   --blm-s-medium: 1.25rem;
   --blm-s-lg: 1.5rem;
 
-  /* Button Colors */
+  /******************** ELEMENTS ********************/
 
+  /* Button */
   --blm-bt-bg-clr: white;
   --blm-bt-bd-clr: #dbdbdb;
   --blm-bt-clr: #363636;
@@ -104,13 +108,11 @@
   --blm-bt-txt-hov-bg-clr: #f5f5f5;
   --blm-bt-txt-hov-clr: #363636;
 
-  /* Progress Colors */ 
-
+  /* Progress */
   --blm-prg-bar-bg-clr: #ededed;
   --blm-prg-value-bg-clr: #4a4a4a;
 
-  /* Table Colors */ 
-
+  /* Table */
   --blm-table-bg-clr: white;
   --blm-table-clr: #363636;
   --blm-table-row-act-bg-clr: turquoise;
@@ -124,4 +126,304 @@
   --blm-table-row-hov-bg-clr: #fafafa;
   --blm-table-striped-row-even-hov-bg-clr: #f5f5f5;
   --blm-table-striped-row-even-bg-clr: #fafafa;
-  }
+
+  /* Tag */
+  --blm-tag-bg-clr: coral;
+  --blm-tag-clr: coral;
+  --blm-tag-radius: coral;
+  --blm-tag-delete-m: coral;
+  --blm-tag-color: coral;
+
+  /* Tooltip has no variables */
+
+  /******************** FORM ********************/
+
+  /* Input */
+  --blm-input-clr: black;
+  --blm-input-bg-clr: black;
+  --blm-input-bd-clr: black;
+  --blm-input-shadow: black;
+  --blm-input-hov-clr: black;
+  --blm-input-hov-bd-clr: black;
+  --blm-input-foc-clr: black;
+  --blm-input-foc-bd-clr: black;
+  --blm-input-foc-box-shadow-s: black;
+  --blm-input-foc-box-shadow-clr: black;
+  --blm-input-dsbl-clr: black;
+  --blm-input-dsbl-bg-clr: black;
+  --blm-input-dsbl-bd-clr: black;
+  --blm-input-arrow: black;
+  --blm-input-icon-clr: black;
+  --blm-input-icon-act-clr: black;
+  --blm-input-radius: black;
+
+  /* v-file */
+  --blm-file-bd-clr: black;
+  --blm-file-radius: black;
+  --blm-file-cta-bg-clr: black;
+  --blm-file-cta-clr: black;
+  --blm-file-cta-hov-clr: black;
+  --blm-file-cta-act-clr: black;
+  --blm-file-name-bd-clr: black;
+  --blm-file-name-bd-style: black;
+  --blm-file-name-bd-width: black;
+  --blm-file-name-max-width: black;
+
+  /* v-switch has no variables */
+
+  /* v-checkbox has no variables */
+  
+  /* Textarea nas no variables but it supports is-[primary, success, info, warning, danger] */
+
+  /* Select has no variables but it suppors is-[primary, success, info, warning, danger] */
+
+  /* v-breadcrumb */
+  --blm-bread-itm-clr: coral;
+  --blm-bread-itm-hov-clr: coral;
+  --blm-bread-itm-act-clr: coral;
+  --blm-bread-itm-p-vertical: coral;
+  --blm-bread-itm-p-horizontal: coral;
+  --blm-bread-itm-separator-clr: coral;
+
+  /* v-card */
+  --blm-card-clr: coral;
+  --blm-card-bg-clr: coral;
+  --blm-card-shadow: coral;
+  --blm-card-radius: coral;
+  --blm-card-overflow: coral;
+  --blm-card-hd-bg-clr: coral;
+  --blm-card-hd-clr: coral;
+  --blm-card-hd-p: coral;
+  --blm-card-hd-shadow: coral;
+  --blm-card-hd-weight: coral;
+  --blm-card-ct-bg-clr: coral;
+  --blm-card-ct-p: coral;
+  --blm-card-ft-bg-clr: coral;
+  --blm-card-ft-bd-top: coral;
+  --blm-card-ft-p: coral;
+  --blm-card-media-m: coral;
+
+  /* v-dropdown */
+  --blm-drp-menu-min-width: coral;
+  --blm-drp-ct-bg-clr: coral;
+  --blm-drp-ct-arrow: coral;
+  --blm-drp-ct-offset: coral;
+  --blm-drp-ct-p-bottom: coral;
+  --blm-drp-ct-p-top: coral;
+  --blm-drp-ct-radius: coral;
+  --blm-drp-ct-shadow: coral;
+  --blm-drp-ct-z: coral;
+  --blm-drp-itm-clr: coral;
+  --blm-drp-itm-hov-clr: coral;
+  --blm-drp-itm-hov-bg-clr: coral;
+  --blm-drp-itm-act-clr: coral;
+  --blm-drp-itm-act-bg-clr: coral;
+  --blm-drp-dvd-bg-clr: coral;
+
+  /* v-menu */
+  --blm-menu-itm-clr: coral;
+  --blm-menu-itm-radius: coral;
+  --blm-menu-itm-hov-clr: coral;
+  --blm-menu-itm-hov-bg-clr: coral;
+  --blm-menu-itm-act-clr: coral;
+  --blm-menu-itm-act-bg-clr: coral;
+  --blm-menu-list-bd-left: coral;
+  --blm-menu-list-line-height: coral;
+  --blm-menu-list-link-p: coral;
+  --blm-menu-nested-list-m: coral;
+  --blm-menu-nested-list-p-left: coral;
+  --blm-menu-label-clr: coral;
+  --blm-menu-label-font-s: coral;
+  --blm-menu-label-letter-spacing: coral;
+  --blm-menu-label-spacing: coral;
+
+  /* v-modal */
+  --blm-modal-z: coral;
+  --blm-modal-bg-bg-clr: coral;
+  --blm-modal-ct-width: coral;
+  --blm-modal-ct-m-mobile: coral;
+  --blm-modal-ct-spacing-mobile: coral;
+  --blm-modal-ct-spacing-tablet: coral;
+  --blm-modal-close-dim: coral;
+  --blm-modal-close-right: coral;
+  --blm-modal-close-top: coral;
+  --blm-modal-card-spacing: coral;
+  --blm-modal-card-head-bg-clr: coral;
+  --blm-modal-card-head-bd-bottom: coral;
+  --blm-modal-card-head-p: coral;
+  --blm-modal-card-head-radius: coral;
+  --blm-modal-card-title-clr: coral;
+  --blm-modal-card-title-line-height: coral;
+  --blm-modal-card-title-s: coral;
+  --blm-modal-card-foot-radius: coral;
+  --blm-modal-card-foot-bd-top: coral;
+  --blm-modal-card-body-bg-clr: coral;
+  --blm-modal-card-body-p: coral;
+  --blm-modal-breakpoint: coral;
+
+  /* v-navbar */
+  --blm-nav-bg-clr: coral;
+  --blm-nav-box-shadow-s: coral;
+  --blm-nav-box-shadow-clr: coral;
+  --blm-nav-height: coral;
+  --blm-nav-p-vertical: coral;
+  --blm-nav-p-horizontal: coral;
+  --blm-nav-z: coral;
+  --blm-nav-fixed-z: coral;
+  --blm-nav-itm-clr: coral;
+  --blm-nav-itm-hov-clr: coral;
+  --blm-nav-itm-hov-bg-clr: coral;
+  --blm-nav-itm-act-clr: coral;
+  --blm-nav-itm-act-bg-clr: coral;
+  --blm-nav-itm-img-max-height: coral;
+  --blm-nav-burger-clr: coral;
+  --blm-nav-tab-hov-bg-clr: coral;
+  --blm-nav-tab-hov-bd-bottom-clr: coral;
+  --blm-nav-tab-act-clr: coral;
+  --blm-nav-tab-act-bg-clr: coral;
+  --blm-nav-tab-act-bd-bottom-clr: coral;
+  --blm-nav-tab-act-bd-bottom-style: coral;
+  --blm-nav-tab-act-bd-bottom-width: coral;
+  --blm-nav-drp-bg-clr: coral;
+  --blm-nav-drp-bd-top: coral;
+  --blm-nav-drp-offset: coral;
+  --blm-nav-drp-arrow: coral;
+  --blm-nav-drp-radius: coral;
+  --blm-nav-drp-z: coral;
+  --blm-nav-drp-boxed-radius: coral;
+  --blm-nav-drp-boxed-shadow: coral;
+  --blm-nav-drp-itm-hov-clr: coral;
+  --blm-nav-drp-itm-hov-bg-clr: coral;
+  --blm-nav-drp-itm-act-clr: coral;
+  --blm-nav-drp-itm-act-bg-clr: coral;
+  --blm-nav-dvd-bg-clr: coral;
+  --blm-nav-dvd-height: coral;
+  --blm-nav-bottom-box-shadow-s: coral;
+  --blm-nav-breakpoint: coral;
+
+  /* v-tabs */
+  --blm-tabs-bd-bottom-clr: coral;
+  --blm-tabs-bd-bottom-style: coral;
+  --blm-tabs-bd-bottom-width: coral;
+  --blm-tabs-link-clr: coral;
+  --blm-tabs-link-hov-bd-bottom-clr: coral;
+  --blm-tabs-link-hov-clr: coral;
+  --blm-tabs-link-act-bd-bottom-clr: coral;
+  --blm-tabs-link-act-clr: coral;
+  --blm-tabs-link-p: coral;
+  --blm-tabs-boxed-link-radius: coral;
+  --blm-tabs-boxed-link-hov-bg-clr: coral;
+  --blm-tabs-boxed-link-hov-bd-bottom-clr: coral;
+  --blm-tabs-boxed-link-act-bg-clr: coral;
+  --blm-tabs-boxed-link-act-bd-clr: coral;
+  --blm-tabs-boxed-link-act-bd-bottom-clr: coral;
+  --blm-tabs-tgl-link-bd-clr: coral;
+  --blm-tabs-tgl-link-bd-style: coral;
+  --blm-tabs-tgl-link-bd-width: coral;
+  --blm-tabs-tgl-link-hov-bg-clr: coral;
+  --blm-tabs-tgl-link-hov-bd-clr: coral;
+  --blm-tabs-tgl-link-radius: coral;
+  --blm-tabs-tgl-link-act-bg-clr: coral;
+  --blm-tabs-tgl-link-act-bd-clr: coral;
+  --blm-tabs-tgl-link-act-clr: coral;
+
+
+  /******************** OTHERS ********************/
+
+  /* These variables will not update vue3-ui components but they might be useful since bulma has support for them */
+
+  /* title */
+  --blm-title-clr: coral;
+  --blm-title-family: coral;
+  --blm-title-s: coral;
+  --blm-title-weight: coral;
+  --blm-title-line-height: coral;
+  --blm-title-strong-clr: coral;
+  --blm-title-strong-weight: coral;
+  --blm-title-sub-s: coral;
+  --blm-title-sup-s: coral;
+  --blm-subtitle-clr: coral;
+  --blm-subtitle-family: coral;
+  --blm-subtitle-s: coral;
+  --blm-subtitle-weight: coral;
+  --blm-subtitle-line-height: coral;
+  --blm-subtitle-strong-clr: coral;
+  --blm-subtitle-strong-weight: coral;
+  --blm-subtitle-negative-m: coral;
+
+  /* panel */
+  --blm-pnl-m: coral;
+  --blm-pnl-itm-bd: coral;
+  --blm-pnl-radius: coral;
+  --blm-pnl-shadow: coral;
+  --blm-pnl-hdg-bg-clr: coral;
+  --blm-pnl-hdg-clr: coral;
+  --blm-pnl-hdg-line-height: coral;
+  --blm-pnl-hdg-p: coral;
+  --blm-pnl-hdg-radius: coral;
+  --blm-pnl-hdg-s: coral;
+  --blm-pnl-hdg-weight: coral;
+  --blm-pnl-tabs-font-s: coral;
+  --blm-pnl-tab-bd-bottom: coral;
+  --blm-pnl-tab-act-bd-bottom-clr: coral;
+  --blm-pnl-tab-act-clr: coral;
+  --blm-pnl-list-itm-clr: coral;
+  --blm-pnl-list-itm-hov-clr: coral;
+  --blm-pnl-block-clr: coral;
+  --blm-pnl-block-hov-bg-clr: coral;
+  --blm-pnl-block-act-bd-left-clr: coral;
+  --blm-pnl-block-act-clr: coral;
+  --blm-pnl-block-act-icon-clr: coral;
+  --blm-pnl-icon-clr: coral;
+  --blm-pnl-colors: coral;
+
+  /* pagination */
+  --blm-pag-clr: coral;
+  --blm-pag-bd-clr: coral;
+  --blm-pag-m: coral;
+  --blm-pag-min-width: coral;
+  --blm-pag-itm-font-s: coral;
+  --blm-pag-itm-m: coral;
+  --blm-pag-itm-p-left: coral;
+  --blm-pag-itm-p-right: coral;
+  --blm-pag-hov-clr: coral;
+  --blm-pag-hov-bd-clr: coral;
+  --blm-pag-foc-clr: coral;
+  --blm-pag-foc-bd-clr: coral;
+  --blm-pag-act-clr: coral;
+  --blm-pag-act-bd-clr: coral;
+  --blm-pag-dsbl-clr: coral;
+  --blm-pag-dsbl-bg-clr: coral;
+  --blm-pag-dsbl-bd-clr: coral;
+  --blm-pag-cur-clr: coral;
+  --blm-pag-cur-bg-clr: coral;
+  --blm-pag-cur-bd-clr: coral;
+  --blm-pag-ellipsis-clr: coral;
+
+  /* message */
+  --blm-msg-bg-clr: coral;
+  --blm-msg-radius: coral;
+  --blm-msg-hd-bg-clr: coral;
+  --blm-msg-hd-clr: coral;
+  --blm-msg-hd-weight: coral;
+  --blm-msg-hd-p: coral;
+  --blm-msg-hd-radius: coral;
+  --blm-msg-body-bd-clr: coral;
+  --blm-msg-body-bd-width: coral;
+  --blm-msg-body-clr: coral;
+  --blm-msg-body-p: coral;
+  --blm-msg-body-radius: coral;
+  --blm-msg-body-pre-bg-clr: coral;
+  --blm-msg-body-pre-code-bg-clr: coral;
+  --blm-msg-hd-body-bd-width: coral;
+  --blm-msg-colors: coral;
+
+  /* box */
+  --blm-box-clr: coral;
+  --blm-box-bg-clr: coral;
+  --blm-box-radius: coral;
+  --blm-box-shadow: coral;
+  --blm-box-p: coral;
+  --blm-box-link-hov-shadow: coral;
+  --blm-box-link-act-shadow: coral;
+}
