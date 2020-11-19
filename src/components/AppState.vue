@@ -1,24 +1,24 @@
 <script>
-import { useState } from '@pathscale/appstate-fast'
-import { watchEffect } from 'vue'
+import { useState } from "@pathscale/appstate-fast";
+import { watchEffect } from "vue";
 
 /* Mutating A triggers B side effects which is incorrect (main issue) */
 export default {
-  name: 'AppStateTest',
+  name: "AppStateTest",
   setup() {
-    const state = useState({ a: 1, b: 2 })
-
+    const state = useState({ a: 1, b: 2 });
     watchEffect(() => {
-      console.log('b was updated incorrectly [only should run once]', state.b.value)
-    })
-
+      console.log(
+        "b was updated incorrectly [only should run once]",
+        state.b.value
+      );
+    });
     setInterval(() => {
-      state.a.set(p => p + 1)
-    }, 1000)
-
-    return { state }
-  }
-}
+      state.a.set((p) => p + 1);
+    }, 1000);
+    return { state };
+  },
+};
 </script>
 
 <template>

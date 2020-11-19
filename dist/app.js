@@ -10258,21 +10258,21 @@
 
     /* Mutating A triggers B side effects which is incorrect (main issue) */
     var script$1 = {
-      name: 'AppStateTest',
+      name: "AppStateTest",
       setup() {
         const state = dist.useState({ a: 1, b: 2 });
-
         watchEffect(() => {
-          console.log('b was updated incorrectly [only should run once]', state.b.value);
-          // state.failed = true // uncomment to trigger StateInvalidUsageError on appstate-fast
+          console.log(state.a.value);
+          console.log(
+            "b was updated incorrectly [only should run once]",
+            state.b.value
+          );
         });
-
         setInterval(() => {
-          state.a.set(p => p + 1);
+          state.a.set((p) => p + 1);
         }, 1000);
-
-        return { state }
-      }
+        return { state };
+      },
     };
 
     const _hoisted_1$1 = { class: "title is-1" };

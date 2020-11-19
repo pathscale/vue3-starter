@@ -12,11 +12,10 @@
     "prestart": "shx rm -rf dist",
     "start": "rollup -c -w --environment NODE_ENV:development"
   },
-  "dependencies": {
-    "@pathscale/appstate-fast": "0.0.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
+    "@pathscale/appstate-fast": "0.0.4",
     "@pathscale/bulma-extensions-css-var": "0.0.41",
     "@pathscale/bulma-pull-2981-css-var-only": "^0.9.6",
     "@pathscale/eslint-plugin-vue3": "0.0.1",
