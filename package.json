@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "^14"
+    "node": ">=14"
   },
+  "engineStrict": true,
   "scripts": {
     "prebuild": "shx rm -rf dist && shx mkdir dist && shx cp public/* dist",
     "build": "rollup -c --environment NODE_ENV:production",
