@@ -1,0 +1,66 @@
+name: revenge.studio
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  check_build_upload:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        env:
+          HUSKY_SKIP_INSTALL: 1
+        run: |
+          npm install --frozen-lockfile
+
+      - name: Npm audit
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm audit --prod
+
+      - name: Set version
+        run: |
+          echo "Version: 1.0.$GITHUB_RUN_NUMBER"
+          sed -i "s/\"version\": \"1.0.0\"/\"version\": \"1.0.$GITHUB_RUN_NUMBER\"/" package.json
+          mv .env.example .env
+          sed -i "s/VUE_APP_VERSION_NUMBER = 1.0.0/VUE_APP_VERSION_NUMBER = 1.0.$GITHUB_RUN_NUMBER/" .env
+
+      - name: Check version
+        run: |
+          cat package.json | grep version
+          cat .env | grep VUE_APP_VERSION_NUMBER
+
+      - name: Build project
+        run: npm run build --if-present
+
+      - name: Configure compression
+        run: |
+          cd dist
+          sed 's/\.css/.scss/g' index.html -i
+          sed 's/\.js/.mjs/g' index.html -i
+          for file in *.css.br*; do mv "$file" "${file/.css.br/.scss}"; done
+          for file in *.js.br*; do mv "$file" "${file/.js.br/.mjs}"; done
+
+      - name: Mirror index.html to 404
+        run: |
+          cd dist
+          mkdir bunnycdn_errors
+          cp index.html bunnycdn_errors/404.html
+
+      - name: Upload to bunnycdn
+        env:
+          STORAGE_API_KEY: ${{ secrets.BUNNYCDN_STORAGE_API_KEY }}
+          ZONE_API_KEY: ${{ secrets.BUNNYCDN_ZONE_API_KEY }}
+          ZONE_ID: ${{ secrets.BUNNYCDN_DEV_ZONE_ID }}
+        run: |
+          cd dist
+          find ./ -name '*' -type f -exec curl -s --request PUT --header "AccessKey: $STORAGE_API_KEY" -T {} https://storage.bunnycdn.com/salesaction--pk/{} \;
+          curl -s --request POST --header "AccessKey: $ZONE_API_KEY" --header "Content-Type: application/json" --header "Accept: application/json" https://bunnycdn.com/api/pullzone/$ZONE_ID/purgeCache --data {"id":$ZONE_ID}

@@ -1,17 +1,31 @@
 'use strict'
 
 const baseConfigs = [
-  'eslint:recommended',
+  'ash-nazg/sauron',
   'plugin:vue/vue3-recommended',
+  'plugin:import/errors',
+  'plugin:import/warnings',
+  'plugin:prettier/recommended',
+]
+
+const baseTSConfigs = [
+  ...baseConfigs,
+  'plugin:import/typescript',
+  'plugin:@typescript-eslint/recommended',
 ]
 
 const vueRules = {
   // Disabling as Vue linter won't catch (and we are requiring `name` anyways)
   'import/no-anonymous-default-export': 'off',
+  // For prohibiting new lines, filed:
+  // https://github.com/vuejs/eslint-plugin-vue/issues/1325
 
   // Temporarily disable
+  'vue/no-boolean-default': 'off',
+  'vue/no-mutating-props': 'off',
   'vue/require-default-prop': 'off',
-  /*
+  'vue/require-prop-types': 'off',
+
   'vue/no-unused-properties': [
     'error',
     {
@@ -19,8 +33,6 @@ const vueRules = {
       groups: ['props', 'computed', 'setup'],
     },
   ],
-   */
-
   // 'vue/no-bare-strings-in-template': ['error'], // Use later i18nizing
   // 'vue/no-static-inline-styles': ['error'], // Revisit later
   // 'vue/no-unregistered-components': ['error'],
@@ -31,12 +43,11 @@ const vueRules = {
   'vue/attributes-order': 'off',
   'vue/max-attributes-per-line': 'off',
 
-  'vue/block-tag-newline': ['error'],
   'vue/component-name-in-template-casing': ['error', 'kebab-case'],
   'vue/html-comment-content-newline': ['error'],
   'vue/html-comment-content-spacing': ['error'],
   'vue/match-component-file-name': ['error', { shouldMatchCase: true }],
-  'vue/no-boolean-default': ['error'],
+  // 'vue/no-boolean-default': ['error'],
   'vue/no-empty-component-block': ['error'],
   'vue/no-multiple-objects-in-class': ['error'],
   'vue/no-potential-component-option-typo': ['error', { presets: ['vue', 'vue-router'] }],
@@ -72,9 +83,10 @@ const baseRules = {
   // Keep this here so can uncomment to check inline disabling
   // "eslint-comments/no-use": "error",
 
+  // Reapply from ash-nazg
   semi: ['error', 'never'],
   quotes: ['error', 'single'],
-  indent: ['error', 2],
+  indent: ['error', 2, { SwitchCase: 1 }],
   curly: ['error'],
   'block-spacing': ['error'],
   'comma-spacing': ['error'],
@@ -89,11 +101,10 @@ const baseRules = {
   'object-curly-spacing': ['error', 'always'],
   'space-before-blocks': ['error'],
   'space-infix-ops': ['error'],
+  'no-shadow': 'off',
 
-  'padding-line-between-statements': [
-    'error',
-    { blankLine: 'always', prev: ['const', 'let'], next: 'export' },
-  ],
+  'padding-line-between-statements': ['error', { blankLine: 'always', prev: '*', next: 'export' }],
+  // semi: ['error', 'never'],
   'no-restricted-syntax': [
     'error',
     {
@@ -110,6 +121,10 @@ const baseRules = {
   'jsdoc/require-jsdoc': 'off',
   'require-unicode-regexp': 'off',
   'prefer-named-capture-group': 'off',
+  'import/order': 'off',
+  'no-console': 'off', // TODO: reenable after dev period
+  'unicorn/prefer-add-event-listener': 'off', // TODO: breaks a lot of stuff, figure out if needed at all
+  'import/unambiguous': 'off',
 }
 
 module.exports = {
@@ -122,23 +137,24 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+  plugins: ['vue'],
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: 'module',
   },
-  plugins: ['vue'],
   overrides: [
     {
       files: [
         '.eslintrc.js',
         '.ncurc.js',
-        'postcss.config.js',
-        '.3rdparty-eslintrc.js',
+        'husky.config.js',
+        'lint-staged.config.js',
         'babel.config.js',
+        'postcss.config.js',
+        'webpack.config.js',
+        '.3rdparty-eslintrc.js',
+        '.np-config.js',
       ],
-      extends: [
-        'eslint:recommended',
-      ],
+      extends: baseConfigs,
       env: {
         node: true,
       },
@@ -156,30 +172,46 @@ module.exports = {
         ...baseRules,
         strict: ['error', 'global'],
         'import/no-commonjs': 'off',
-
-        // Disabling for now
-        'require-unicode-regexp': 'off',
-        'prefer-named-capture-group': 'off',
       },
     },
     {
-      files: 'rollup.config.js',
-      env: {
-        node: true
-      }
+      files: '*.ts',
+      extends: baseTSConfigs,
+      plugins: ['@typescript-eslint'],
+      parser: '@typescript-eslint/parser',
+      rules: {
+        ...baseRules,
+        // Reenable later
+        'eslint-comments/require-description': 0,
+        'eslint-comments/no-unused-disable': 0,
+
+        // '@typescript-eslint/no-unsafe-assignment': ['error'],
+        // '@typescript-eslint/no-unsafe-member-access': ['error'],
+        // '@typescript-eslint/no-unsafe-return': ['error'],
+        // '@typescript-eslint/naming-convention': ['error'],
+        // Reenable later?
+        '@typescript-eslint/explicit-module-boundary-types': 0,
+      },
+    },
+    {
+      files: 'src/shims-vue.d.ts',
+      extends: baseTSConfigs,
+      rules: {
+        ...baseRules,
+        // No imports/exports in plain declaration file
+        'import/unambiguous': 'off',
+      },
     },
     {
       files: '*.vue',
+      extends: baseConfigs,
       plugins: ['@pathscale/vue3'],
       rules: {
         ...baseRules,
         ...vueRules,
-        'prettier/prettier': 'off',
-
-        // Reapply to better match prettier since disabled
+        // Reapply to better match prettier
         'arrow-parens': ['error', 'as-needed'],
         // 'comma-dangle': ['error', 'always'], // Interferes with arrow-parens
-        'comma-dangle': ['error', 'never'],
         'space-before-function-paren': ['error', 'never'],
 
         '@pathscale/vue3/v-directive': [
@@ -208,5 +240,13 @@ module.exports = {
   ],
   rules: {
     ...baseRules,
+  },
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+      node: {
+        extensions: ['.js', '.vue'],
+      },
+    },
   },
 }
