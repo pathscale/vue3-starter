@@ -13,7 +13,9 @@ import resolve from '@rollup/plugin-node-resolve'
 import serve from 'rollup-plugin-serve'
 import styles from 'rollup-plugin-styles'
 import sucrase from '@rollup/plugin-sucrase'
-import tsickle from '@pathscale/rollup-plugin-tsickle'
+
+import typescript from 'rollup-plugin-typescript'
+
 import vue from '@pathscale/rollup-plugin-vue3'
 import vue3svg from '@pathscale/vue3-svg-icons'
 import vue3uiPurge from '@pathscale/rollup-plugin-vue3-ui-css-purge'
@@ -81,7 +83,7 @@ const template = ({ attributes, files, meta, publicPath, title }) => {
 }
 const config = [
   {
-    input: 'src/main.js',
+    input: 'src/main.ts',
     output: [
       {
         format: 'iife',
@@ -124,8 +126,11 @@ const config = [
       }),
 
       commonjs(),
-      // TODO: fix rollup-plugin-tsickle to allow proper processing order
-      prod && tsickle(),
+      typescript({
+        tsconfig: false,
+        experimentalDecorators: true,
+        module: 'es2015',
+      }),
       vue3svg(),
       prod && vue3uiPurge({ alias: aliases, debug: true }),
       vue({ preprocessStyles: false }),
