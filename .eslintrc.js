@@ -77,6 +77,7 @@ const vueRules = {
       },
     },
   ],
+  'vue/multi-word-component-names': 'off',
 }
 
 const baseRules = {
@@ -102,6 +103,7 @@ const baseRules = {
   'space-before-blocks': ['error'],
   'space-infix-ops': ['error'],
   'no-shadow': 'off',
+  'no-implicit-globals': 'off',
 
   'padding-line-between-statements': ['error', { blankLine: 'always', prev: '*', next: 'export' }],
   // semi: ['error', 'never'],

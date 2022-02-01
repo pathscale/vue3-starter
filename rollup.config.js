@@ -35,7 +35,9 @@ const watch = Boolean(process.env.ROLLUP_WATCH) || Boolean(process.env.LIVERELOA
 const addVersion = fileName => {
   const ver = prod ? env.parsed.VUE_APP_VERSION_NUMBER : Date.now()
   const { dir, ext, base } = path.parse(fileName)
-  if (ext === '.html') return fileName
+  if (ext === '.html') {
+    return fileName
+  }
   const filename = base + `?v=${ver}`
   return dir ? `${dir}/${filename}` : filename
 }
@@ -140,14 +142,20 @@ const config = [
         name: 'svg',
         load(id) {
           const [url] = id.split('?')
-          if (!/\.svg$/.test(url)) return null
+          if (!/\.svg$/.test(url)) {
+            return null
+          }
           this.addWatchFile(url)
           return fs.readFileSync(url, 'utf8')
         },
         transform(code, id) {
           const [url, query] = id.split('?')
-          if (!/\.svg$/.test(url)) return null
-          if (query !== 'data') code = 'data:image/svg+xml;utf8,' + encodeURIComponent(code)
+          if (!/\.svg$/.test(url)) {
+            return null
+          }
+          if (query !== 'data') {
+            code = 'data:image/svg+xml;utf8,' + encodeURIComponent(code)
+          }
           return { code: `export default ${JSON.stringify(code)};`, map: { mappings: '' } }
         },
       },

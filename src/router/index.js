@@ -32,7 +32,9 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.private)) {
     if (!authStore.logged) {
       next({ name: 'login' })
-    } else next()
+    } else {
+      next()
+    }
   } else {
     next()
   }
