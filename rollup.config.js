@@ -1,30 +1,26 @@
-import path from 'path'
-import zlib from 'zlib'
+import { terser } from 'rollup-plugin-terser'
+import alias from '@rollup/plugin-alias'
+import commonjs from '@rollup/plugin-commonjs'
 import dotenv from 'dotenv'
 import fs from 'fs'
-
-import commonjs from '@rollup/plugin-commonjs'
+import gzip from 'rollup-plugin-gzip'
+import html, { makeHtmlAttributes } from '@rollup/plugin-html'
+import image from '@rollup/plugin-image'
+import livereload from 'rollup-plugin-livereload'
+import path from 'path'
 import replace from '@rollup/plugin-replace'
 import resolve from '@rollup/plugin-node-resolve'
-import gzip from 'rollup-plugin-gzip'
-import styles from 'rollup-plugin-styles'
-import html, { makeHtmlAttributes } from '@rollup/plugin-html'
-import vue from '@pathscale/rollup-plugin-vue3'
-// import vue from 'rollup-plugin-vue'
-import alias from '@rollup/plugin-alias'
 import serve from 'rollup-plugin-serve'
-import livereload from 'rollup-plugin-livereload'
-// import compiler from '@ampproject/rollup-plugin-closure-compiler'
-import { terser } from 'rollup-plugin-terser'
+import styles from 'rollup-plugin-styles'
 import sucrase from '@rollup/plugin-sucrase'
-import vue3uiPurge from '@pathscale/rollup-plugin-vue3-ui-css-purge'
 import tsickle from '@pathscale/rollup-plugin-tsickle'
+import vue from '@pathscale/rollup-plugin-vue3'
 import vue3svg from '@pathscale/vue3-svg-icons'
-// import typescript from '@rollup/plugin-typescript'
-import image from '@rollup/plugin-image'
+import vue3uiPurge from '@pathscale/rollup-plugin-vue3-ui-css-purge'
+import zlib from 'zlib'
 
 const extensions = ['.ts', '.mjs', '.js', '.vue', '.json']
-// const aliasRoots = ['./', './src/pages/RevCatBlast']
+
 const aliases = {
   '~': path.resolve('src').replace(/\\/g, '/'),
 }
@@ -166,15 +162,6 @@ const config = [
       !prod && sucrase({ exclude: ['**/node_modules/**'], transforms: ['typescript'] }),
 
       prod && terser({ format: { comments: false } }),
-      // this won't let me use ?. operator https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
-      // prod &&
-      //   compiler({
-      //     warning_level: 'verbose',
-      //     language_in: 'ECMASCRIPT_NEXT',
-      //     language_out: 'ECMASCRIPT_2018',
-      //     jscomp_off: '*',
-      //   }),
-
       prod &&
         gzip({
           fileName: '.br',
