@@ -134,7 +134,7 @@ const config = [
         module: 'es2015',
       }),
       vue3svg(),
-      prod && vue3uiPurge({ alias: aliases, debug: true }),
+      prod && vue3uiPurge({ alias: aliases, debug: false }),
       vue({ preprocessStyles: false }),
 
       image({ exclude: /\.svg$/ }),

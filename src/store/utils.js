@@ -42,9 +42,7 @@ export const normalize = (response, key) => {
   const keys = Object.keys(response)
   const ids = response[key]
 
-  if (!ids) {
-    return {}
-  }
+  if (!ids) return {}
   const content = ids.map((e, i) => {
     const obj = {}
     keys.forEach(e => {

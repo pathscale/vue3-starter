@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import './Icons.vue'
 
+import './assets/css/globals.css'
+
 import {
   VButton,
   VCheckbox,

@@ -4,16 +4,15 @@ import { encodePassword } from '~/utils/encoders'
 
 const slices = makeState({
   initialState: {
-    logged: false,
+    logged: false, // process.env.NODE_ENV === 'development',
     role: null,
-    recordCount: null,
   },
   mutations: {
     async login(state, payload) {
       const { userPublicId, serviceTokens, organizations } = await api.auth.connect([
         '0login',
-        '1' + payload.username,
-        '2' + encodePassword(payload.password),
+        '1' + payload.username.$value.split('@')[0], // TODO remove
+        '2' + encodePassword(payload.password.$value),
         '31',
         '424787297130491616',
         '5android',
@@ -24,13 +23,12 @@ const slices = makeState({
         serviceTokens.user,
         '24787297130491616',
         'android',
-        organizations.publicId[0], // need to define how to pick one of available, rev needs to say...
+        organizations.publicId[0],
       ]
 
-      const { role, recordCount } = await api.app.connect(content)
+      const { role } = await api.app.connect(content)
 
       state.role = role
-      state.recordCount = recordCount
       state.logged = true
     },
 

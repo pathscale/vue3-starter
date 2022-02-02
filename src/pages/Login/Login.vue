@@ -41,7 +41,9 @@ export default {
       state.error = null
       state.msg = null
 
-      if (!validate()) { return }
+      if (!validate()) {
+        return
+      }
 
       try {
         if (state.tab === 0) {
@@ -55,7 +57,9 @@ export default {
     }
 
     watchEffect(() => {
-      if (authStore.logged) { router.push({ name: 'home' }) }
+      if (authStore.logged) {
+        router.push({ name: 'home' })
+      }
     })
 
     const isLogin = computed(() => {
@@ -71,9 +75,7 @@ export default {
   <div class="px-4">
     <v-columns hcentered class="pt-6">
       <v-column narrow>
-        <h1 class="title is-1 has-text-centered has-text-weight-medium">
-          Vue3-ui
-        </h1>
+        <h1 class="title is-1 has-text-centered has-text-weight-medium">Vue3-ui</h1>
         <form @submit.prevent="onSubmit" class="box">
           <v-tabs v-model="state.tab" position="is-centered" class="pb-4">
             <v-tab label="Login" :disabled="authStore.loading['login']" />
@@ -85,19 +87,20 @@ export default {
           </v-field>
 
           <v-field label="password">
-            <v-input placeholder="password" type="password" v-model="state.password" required />
+            <v-input
+              placeholder="password"
+              type="password"
+              v-model="state.password"
+              required
+              password-reveal/>
           </v-field>
 
           <v-field v-if="state.tab">
-            <v-checkbox v-model="state.tos" required>
-              I accept terms of service
-            </v-checkbox>
+            <v-checkbox v-model="state.tos" required> I accept terms of service </v-checkbox>
           </v-field>
 
           <v-field v-if="state.tab">
-            <v-checkbox v-model="state.privacy" required>
-              I accept privacy policies
-            </v-checkbox>
+            <v-checkbox v-model="state.privacy" required> I accept privacy policies </v-checkbox>
           </v-field>
 
           <p v-if="state.msg" class="notification is-info is-light">
