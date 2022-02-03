@@ -22,7 +22,7 @@ export const useEmail = {
 }
 
 export const usePassword = {
-  $value: ref(process.env.VUE_APP_PASSWORD), // TODO: remove
+  $value: ref(process.env.VUE_APP_PASSWORD || ''), // TODO: remove
   required: {
     $validator: required,
     $message: ref('Password field is required'),

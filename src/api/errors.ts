@@ -1,4 +1,6 @@
-const errors = {
+import { IErrors } from './types/index.types'
+
+const errors: IErrors = {
   0: 'OK',
   3484946: 'InvalidEnumLevel',
   45349632: 'Error',

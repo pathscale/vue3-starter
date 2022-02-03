@@ -1,13 +1,16 @@
-/* eslint-disable compat/compat -- ok */
-/* eslint-disable promise/avoid-new -- ok */
+/* eslint-disable compat/compat */
+/* eslint-disable promise/avoid-new */
+/* eslint-disable @typescript-eslint/no-empty-function */
 
-const wssAdapter = {
-  configure: null,
+import { IStore, IWssAdapter, IServiceConfig } from './types/index.types'
+
+const wssAdapter: IWssAdapter = {
   services: {},
   sessions: {},
+  configure() {},
 }
 
-const store = {
+const store: IStore = {
   timeout: 0,
   errors: {},
   services: {},
@@ -25,7 +28,7 @@ const store = {
 
   sessions: {},
   pendingPromises: {},
-  onError: null,
+  onError() {},
 }
 
 wssAdapter.configure = configuration => {
@@ -41,27 +44,32 @@ wssAdapter.configure = configuration => {
     // construct services objects with two simple functions
     // intended use: `wssAdapter.services.admin.connect([1, 2, 3])` or `wssAdapter.services.auth.connect([1, 2, 3])`
     wssAdapter.services[serviceName] = {
-      connect: payload => connectHandler(serviceName, serviceConfig, payload),
+      connect: <T>(payload: string | string[] | undefined) =>
+        connectHandler<T>(serviceName, serviceConfig, payload),
       disconnect: () => disconnectHandler(serviceName),
     }
 
-    // construct sessions objects that contain a proxy so you can ask any property
+    // construct sessions objects that contain a proxy so you can ask unknown property
     // intended use: `wssAdapter.sessions.admin.updatePassword({ newPassword: 'hotdog6737637' })`
     wssAdapter.sessions[serviceName] = new Proxy(
       {},
       {
-        get: (target, methodName) => payload =>
+        get: (target, methodName: string) => (payload: Record<string, unknown>) =>
           sendHandler(serviceName, serviceConfig, methodName, payload),
       },
     )
   }
 }
 
-const connectHandler = (serviceName, serviceConfig, payload) => {
+const connectHandler = <T>(
+  serviceName: string,
+  serviceConfig: IServiceConfig,
+  payload: string | string[] | undefined,
+) => {
   return new Promise((resolve, reject) => {
     store.sessions[serviceName] = new WebSocket(serviceConfig.remote, payload)
 
-    store.sessions[serviceName].onmessage = function (event) {
+    store.sessions[serviceName].onmessage = function (event: { data: string }) {
       const response = JSON.parse(event.data)
       console.log(response)
 
@@ -75,14 +83,19 @@ const connectHandler = (serviceName, serviceConfig, payload) => {
     }
 
     store.sessions[serviceName].onclose = serviceConfig.onDisconnect
-  })
+  }) as Promise<T>
 }
 
-const disconnectHandler = serviceName => {
+const disconnectHandler = (serviceName: string) => {
   store.sessions[serviceName]?.close()
 }
 
-const sendHandler = (serviceName, serviceConfig, methodName, params) => {
+const sendHandler = (
+  serviceName: string,
+  serviceConfig: IServiceConfig,
+  methodName: string,
+  params: Record<string, unknown>,
+) => {
   const methodCode = Object.entries(serviceConfig.methods)
     .map(([code, info]) => ({ code, info }))
     .find(({ info }) => info.name === methodName)?.code
@@ -96,13 +109,21 @@ const sendHandler = (serviceName, serviceConfig, methodName, params) => {
       serviceConfig.methods[methodCode].parameters.includes(param),
     )
   ) {
-    console.log(`wss method ${methodCode} is being called with missing parameters`)
+    throw new Error(`method ${methodCode} is being called with missing parameters`)
   }
 
-  const purgedParams = {}
+  const purgedParams: Record<string, unknown> = {}
   serviceConfig.methods[methodCode].parameters.forEach(k => {
     purgedParams[k] = params[k]
   })
+
+  const difference = Object.keys(params).filter(
+    x => !serviceConfig.methods[methodCode].parameters.includes(x),
+  )
+
+  if (difference.length) {
+    throw new Error(`method ${methodCode} is being called with unknow parameters, ${difference}`)
+  }
 
   const payload = {
     method: Number.parseInt(methodCode),
@@ -120,20 +141,21 @@ const sendHandler = (serviceName, serviceConfig, methodName, params) => {
       resolve,
       reject,
       toHandler: setTimeout(() => {
-        reject(store.handleError(methodCode.toString() + ' took to long, aborting'))
+        reject(new Error(methodCode.toString() + ' took to long, aborting'))
       }, store.timeout),
     }
   })
 }
 
-const receiveHandler = event => {
+const receiveHandler = (event: { data: string }) => {
   const response = JSON.parse(event.data)
   console.log(`app::${response.method} got:`, response)
 
   const error = response.method === 0
   const done = response.method.toString().endsWith('1')
 
-  const resolve = (payload, code) => {
+  const resolve = (payload: unknown, code: number) => {
+    console.log(code)
     const executor = store.pendingPromises[response.seq]
     clearTimeout(store.pendingPromises[response.seq].toHandler)
     delete store.pendingPromises[response.seq]
@@ -153,7 +175,14 @@ const receiveHandler = event => {
 // 1) protocol violation
 // 2) malformed request
 // seq must be decreased
-function onError(response) {
+
+interface IResponse {
+  params: {
+    error: number
+  }
+}
+
+function onError(response: IResponse) {
   const { error: errorCode } = response.params
   const errorMsg = store.errors[errorCode] ?? 'Something went wrong'
 
@@ -169,7 +198,7 @@ function onError(response) {
 
   // if there was only one executor saved in store.pendingPromises, then it was that request that failed
   if (Object.keys(store.pendingPromises).length === 1) {
-    const onlyKey = Object.keys(store.pendingPromises)[0]
+    const onlyKey = Number.parseInt(Object.keys(store.pendingPromises)[0])
     clearTimeout(store.pendingPromises[onlyKey].toHandler)
     store.pendingPromises[onlyKey].reject(new Error(errorMsg))
     delete store.pendingPromises[onlyKey]

@@ -1,4 +1,6 @@
-const service = {
+import { IService } from '../types/index.types'
+
+const service: IService = {
   remote: 'wss://api.salesaction.pk:8447',
   methods: {
     10020: {

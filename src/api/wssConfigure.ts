@@ -10,7 +10,12 @@ const wssConfigure = () => {
   wssAdapter.configure({
     timeout: 90000,
     services: {
-      auth,
+      auth: {
+        ...auth,
+        onDisconnect() {
+          console.log('disconnected from auth!')
+        },
+      },
       app: {
         ...app,
         onDisconnect() {
@@ -22,7 +27,6 @@ const wssConfigure = () => {
           }, 2000)
         },
       },
-      admin: {},
     },
     errors,
     onError({ message }) {

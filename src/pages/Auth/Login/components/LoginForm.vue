@@ -1,17 +1,12 @@
-<script>
-import { computed, reactive } from 'vue'
-import authStore, { login } from '~/store/modules/auth'
+<script lang="ts">
 import { useValidation } from 'vue-composable'
 import { useEmail, usePassword, useTOS, useErrorMessage } from '~/utils/validators'
+import useLogin from '../hooks/useLogin'
 
 export default {
   name: 'Login',
   setup() {
-    const state = reactive({
-      error: null,
-      tos: false,
-      privacy: false,
-    })
+    const { login, loading, error } = useLogin()
 
     const form = useValidation({
       email: useEmail,
@@ -21,29 +16,21 @@ export default {
 
     const errorMessage = useErrorMessage(form)
 
-    async function onSubmit() {
-      try {
-        await login({
-          username: form.email,
-          password: form.password,
-        })
-      } catch (error) {
-        state.error = error
-      }
+    function onSubmit() {
+      login({
+        username: form.email.$value,
+        password: form.password.$value,
+      })
     }
 
-    const isLogin = computed(() => {
-      return authStore.loading.login
-    })
-
-    return { state, onSubmit, isLogin, errorMessage, form }
+    return { onSubmit, errorMessage, form, loading, error }
   },
 }
 </script>
 
 <template>
   <form @submit.prevent="onSubmit">
-    <v-field v-if="state.error" :message="state.error.message" type="is-danger">
+    <v-field v-if="error" :message="error" type="is-danger">
       <v-input placeholder="Email address" v-model="form.email.$value" autofocus />
     </v-field>
 
@@ -61,8 +48,7 @@ export default {
 
     <v-field :message="errorMessage('tos')" type="is-danger">
       <v-checkbox v-model="form.tos.$value">
-        <span class="ml-2"
-          >We/I agree to be bound by the terms set out in the
+        <span class="ml-2">We/I agree to be bound by the terms set out in the
           <a target="_blank" rel="noopener noreferrer">Terms of Use</a>,
           <a target="_blank" rel="noopener noreferrer">Privacy Policy</a>
         </span>
@@ -73,11 +59,10 @@ export default {
       size="is-medium"
       expanded
       class="disabled my-6"
-      :loading="isLogin"
+      :loading="loading"
       type="is-primary"
       native-type="submit"
-      :disabled="form.$anyInvalid"
-    >
+      :disabled="form.$anyInvalid">
       Login
     </v-button>
 

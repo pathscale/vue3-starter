@@ -19,26 +19,15 @@ export default {
 </script>
 
 <template>
-  <v-columns hcentered gapless class="my-0" vcentered>
-    <v-column class="auth-banner is-hidden-touch" />
-    <v-column size="is-2" />
-    <v-column size="is-4">
+  <v-columns hcentered gapless vcentered>
+    <v-column class="image is-5-tablet is-3-desktop">
       <div class="section">
         <h1 class="title is-3 has-text-centered">Login</h1>
-        <login-form />
+        <login-form class="box" />
       </div>
     </v-column>
-    <v-column size="is-2" />
   </v-columns>
 </template>
 
 
-<style>
-.auth-banner {
-  background-image: url('../../../assets/background/bg-auth-office.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-</style>
+

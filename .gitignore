@@ -23,6 +23,8 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
+/nuxt
+
 stats.html
 mockups
 yarn.lock
