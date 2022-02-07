@@ -1,4 +1,4 @@
-import wssAdapter from './wssAdapter'
+import wssAdapter from '@pathscale/wss-adapter'
 
 const api = wssAdapter.services
 

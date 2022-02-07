@@ -1,4 +1,4 @@
-import { IService } from '../types/index.types'
+import { IService } from '@pathscale/wss-adapter/types'
 
 const service: IService = {
   remote: 'wss://api.salesaction.pk:8448',

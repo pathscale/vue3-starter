@@ -1,12 +1,15 @@
-<script>
+<script lang="ts">
 import { VNavbar, VNavbarItem } from '@pathscale/vue3-ui'
-import { logout } from '~/store/modules/auth'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'Navbar',
   components: { VNavbar, VNavbarItem },
-  setup() {
-    return { logout }
+  emits: ['logout'],
+  setup(props, { emit }) {
+    const router = useRouter()
+
+    return { router, logout: () => emit('logout') }
   },
 }
 </script>
@@ -16,7 +19,9 @@ export default {
     <template #brand>
       <v-navbar-item>
         <router-link to="/wallet">
-          <strong class="has-text-dark">Infinity Guild</strong>
+          <strong class="has-text-primary is-capitalized title is-size-4">{{
+            router.currentRoute.value.name
+          }}</strong>
         </router-link>
       </v-navbar-item>
     </template>

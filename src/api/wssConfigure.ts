@@ -1,8 +1,7 @@
-import wssAdapter from './wssAdapter'
+import wssAdapter from '@pathscale/wss-adapter'
 import errors from './errors'
-import auth from './services/auth'
-import app from './services/app'
-import { store } from '../store/store'
+import auth from './services/auth.service'
+import app from './services/app.service'
 
 import { router } from '~/router'
 
@@ -20,7 +19,6 @@ const wssConfigure = () => {
         ...app,
         onDisconnect() {
           console.log('disconnected!')
-          store.notification = 'Your session has expired!'
           setTimeout(() => {
             router.replace({ name: 'login' })
             localStorage.clear()
@@ -30,7 +28,7 @@ const wssConfigure = () => {
     },
     errors,
     onError({ message }) {
-      store.notification = message
+      console.log(message)
     },
   })
   console.log('wss client configured')

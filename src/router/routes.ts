@@ -1,4 +1,4 @@
-import Main from '~/layouts/Main.vue'
+import Main from '~/layouts/Main.layout.vue'
 import { Wallet, Loans, Account, Card, Settings, Login } from '~/pages'
 
 const routes = [

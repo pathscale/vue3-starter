@@ -1,7 +1,7 @@
 <script>
 import { watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
-import authStore from '~/store/modules/auth'
+import authStore from '~/store/modules/auth.module'
 
 import LoginForm from './components/LoginForm.vue'
 

@@ -19,9 +19,14 @@ interface IMutations {
   logout: () => void
 }
 
-const slices = makeState<IState, IMutations>({
+interface IActions {
+  login: (payload: ILogin) => Promise<void>
+  logout: () => void
+}
+
+const slices = makeState<IState, IMutations, IActions>({
   initialState: {
-    logged: false, // process.env.NODE_ENV === 'development',
+    logged: false,
     role: null,
     loading: {},
     error: {},
@@ -57,6 +62,7 @@ const slices = makeState<IState, IMutations>({
 
       state.role = role
       state.logged = true
+      console.log('aca estoy', state.logged)
     },
 
     logout() {

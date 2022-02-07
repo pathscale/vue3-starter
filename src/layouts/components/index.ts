@@ -1,5 +1,5 @@
-export { default as Navbar } from './Navbar'
+export { default as Navbar } from './Navbar.vue'
 
-export { default as Sidebar } from './Sidebar'
+export { default as Sidebar } from './Sidebar.vue'
 
-export { default as CustomFooter } from './CustomFooter'
+export { default as CustomFooter } from './CustomFooter.vue'

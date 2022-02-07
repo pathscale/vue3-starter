@@ -39,6 +39,7 @@ import {
   VTable,
   VDropdown,
   VDropdownItem,
+  VAvatar,
 } from '@pathscale/vue3-ui'
 import App from './App.vue'
 import '@pathscale/bulma-pull-2981-css-var-only'
@@ -83,5 +84,6 @@ app.component('VSwitch', VSwitch)
 app.component('VTable', VTable)
 app.component('VDropdown', VDropdown)
 app.component('VDropdownItem', VDropdownItem)
+app.component('VAvatar', VAvatar)
 
 app.use(router).mount('#app')

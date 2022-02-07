@@ -1,5 +1,5 @@
 import { toRef } from 'vue'
-import authStore, { login as signIn } from '~/store/modules/auth'
+import authStore, { login as signIn, logout } from '~/store/modules/auth.module'
 
 const useLogin = () => {
   const login = (payload: { username: string; password: string }) => {
@@ -7,6 +7,7 @@ const useLogin = () => {
   }
   return {
     login,
+    logout,
     loading: toRef(authStore.loading, 'login'),
     error: toRef(authStore.error, 'login'),
   }

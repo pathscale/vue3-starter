@@ -1,4 +1,4 @@
-import { IErrors } from './types/index.types'
+import { IErrors } from '@pathscale/wss-adapter/types'
 
 const errors: IErrors = {
   0: 'OK',

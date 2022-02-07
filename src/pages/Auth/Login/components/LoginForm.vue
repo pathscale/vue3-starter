@@ -67,7 +67,7 @@ export default {
     </v-button>
 
     <v-field class="is-flex is-justify-content-center">
-      <p class="is-small">New at Infinity Guild? <a> Sign up </a></p>
+      <p class="is-small">New user? <a> Sign up </a></p>
     </v-field>
   </form>
 </template>

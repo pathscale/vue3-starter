@@ -25,6 +25,7 @@
     "@pathscale/rollup-plugin-vue3-ui-css-purge": "^0.0.39",
     "@pathscale/vue3-svg-icons": "^0.0.11",
     "@pathscale/vue3-ui": "^0.8.142",
+    "@pathscale/wss-adapter": "^1.0.0",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-html": "^0.2.4",

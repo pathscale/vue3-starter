@@ -9,9 +9,10 @@ import { reactive } from 'vue'
 export function makeState<
   IState extends { loading: Record<string, unknown>; error: Record<string, unknown> },
   IMutations,
+  IActions,
 >({ initialState, mutations }: { initialState: IState; mutations: IMutations }) {
   const state = reactive<IState>(initialState)
-  const actions: IMutations = {}
+  const actions: IActions = {}
   state.loading = {}
   state.error = {}
 
@@ -19,15 +20,18 @@ export function makeState<
 
   actionNames.forEach(actionName => {
     state.loading[actionName] = false
-    const action = mutations[actionName] as (state: unknown, payload?: unknown) => Promise<void>
+    const mutation = mutations[actionName] as (
+      store: typeof state,
+      payload?: unknown,
+    ) => Promise<void>
 
     actions[actionName] = async function (payload: unknown) {
       try {
         state.loading[actionName] = true
-        const result = await action(state, payload)
+        const result = await mutation(state, payload)
         return result
-      } catch (error: { message: string }) {
-        state.error[actionName] = error.message
+      } catch (error: unknown) {
+        state.error[actionName] = error?.message || 'Unknown error'
       } finally {
         state.loading[actionName] = false
       }
