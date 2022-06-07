@@ -127,6 +127,7 @@ const baseRules = {
   'no-console': 'off', // TODO: reenable after dev period
   'unicorn/prefer-add-event-listener': 'off', // TODO: breaks a lot of stuff, figure out if needed at all
   'import/unambiguous': 'off',
+  'no-use-before-define': 'off',
 }
 
 module.exports = {
@@ -141,7 +142,8 @@ module.exports = {
   },
   plugins: ['vue'],
   parserOptions: {
-    ecmaVersion: 2020,
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 6,
   },
   overrides: [
     {
@@ -193,6 +195,7 @@ module.exports = {
         // '@typescript-eslint/naming-convention': ['error'],
         // Reenable later?
         '@typescript-eslint/explicit-module-boundary-types': 0,
+        '@typescript-eslint/no-empty-interface': 0,
       },
     },
     {

@@ -6,6 +6,7 @@ import fs from 'fs'
 import gzip from 'rollup-plugin-gzip'
 import html, { makeHtmlAttributes } from '@rollup/plugin-html'
 import image from '@rollup/plugin-image'
+import json from '@rollup/plugin-json'
 import livereload from 'rollup-plugin-livereload'
 import path from 'path'
 import replace from '@rollup/plugin-replace'
@@ -13,9 +14,6 @@ import resolve from '@rollup/plugin-node-resolve'
 import serve from 'rollup-plugin-serve'
 import styles from 'rollup-plugin-styles'
 import sucrase from '@rollup/plugin-sucrase'
-
-import typescript from 'rollup-plugin-typescript'
-
 import vue from '@pathscale/rollup-plugin-vue3'
 import vue3svg from '@pathscale/vue3-svg-icons'
 import vue3uiPurge from '@pathscale/rollup-plugin-vue3-ui-css-purge'
@@ -97,11 +95,14 @@ const config = [
     ],
 
     plugins: [
+      json(),
       replace({
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         'process.env.VUE_APP_VERSION_NUMBER': JSON.stringify(env.parsed.VUE_APP_VERSION_NUMBER),
         'process.env.VUE_APP_USERNAME': JSON.stringify(env.parsed.VUE_APP_USERNAME),
         'process.env.VUE_APP_PASSWORD': JSON.stringify(env.parsed.VUE_APP_PASSWORD),
+        'process.env.AUTH_SERVER': JSON.stringify(env.parsed.AUTH_SERVER),
+        'process.env.APP_SERVER': JSON.stringify(env.parsed.APP_SERVER),
         __VUE_OPTIONS_API__: false,
         __VUE_PROD_DEVTOOLS__: false,
         DEBUG: true,
@@ -126,13 +127,7 @@ const config = [
         preferBuiltins: true,
         extensions,
       }),
-
       commonjs(),
-      typescript({
-        tsconfig: false,
-        experimentalDecorators: true,
-        module: 'es2015',
-      }),
       vue3svg(),
       prod && vue3uiPurge({ alias: aliases, debug: false }),
       vue({ preprocessStyles: false }),
@@ -172,7 +167,7 @@ const config = [
         },
       }),
 
-      !prod && sucrase({ exclude: ['**/node_modules/**'], transforms: ['typescript'] }),
+      sucrase({ exclude: ['**/node_modules/**'], transforms: ['typescript'] }),
 
       prod && terser({ format: { comments: false } }),
       prod &&
