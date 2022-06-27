@@ -2,7 +2,6 @@
 
 module.exports = {
   extends: 'stylelint-config-standard',
-  plugins: ['stylelint-value-no-unknown-custom-properties'],
   rules: {
     indentation: [
       2,

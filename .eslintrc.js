@@ -210,7 +210,6 @@ module.exports = {
     {
       files: '*.vue',
       extends: baseConfigs,
-      plugins: ['@pathscale/vue3'],
       rules: {
         ...baseRules,
         ...vueRules,
@@ -218,28 +217,6 @@ module.exports = {
         'arrow-parens': ['error', 'as-needed'],
         // 'comma-dangle': ['error', 'always'], // Interferes with arrow-parens
         'space-before-function-paren': ['error', 'never'],
-
-        '@pathscale/vue3/v-directive': [
-          'error',
-          {
-            unsafe: [
-              // These just add a single operator
-              // 'SpreadElement',
-              // 'UnaryExpression',
-
-              // This seems unavoidable
-              // 'CallExpression',
-
-              // To avoid these, one can use a call expression
-              'AssignmentExpression',
-              'BinaryExpression',
-              'LogicalExpression',
-              'ConditionalExpression',
-              // This can have design features but preventing to avoid ugliness
-              'TemplateLiteral[expressions.length <= 1]',
-            ],
-          },
-        ],
       },
     },
   ],
