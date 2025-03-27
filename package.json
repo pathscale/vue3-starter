@@ -11,7 +11,10 @@
     "lint": "eslint --ext .js,.ts,.vue,.html src --fix --max-warnings=0 .",
     "prestart": "shx rm -rf dist",
     "start": "rollup -c -w --environment NODE_ENV:development",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "vite",
+    "tauri:dev": "pnpm tauri dev",
+    "tauri:build": "pnpm tauri build"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -32,6 +35,7 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-sucrase": "^4.0.4",
+    "@tauri-apps/cli": "^2.4.0",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
     "@vitejs/plugin-vue": "^2.3.3",
