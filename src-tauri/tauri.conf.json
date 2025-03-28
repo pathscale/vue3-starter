@@ -5,7 +5,7 @@
   "identifier": "vue3.dev",
   "build": {
     "frontendDist": "../dist",
-    "devUrl": "http://localhost:3000",
+    "devUrl": "http://localhost:5000",
     "beforeDevCommand": "npm run start",
     "beforeBuildCommand": "npm run build"
   },
