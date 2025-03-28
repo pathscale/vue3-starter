@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "vue3-starter",
   "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "vue3.dev",
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:3000",

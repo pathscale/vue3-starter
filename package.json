@@ -83,5 +83,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "@tauri-apps/api": "^2.4.0"
+  }
 }

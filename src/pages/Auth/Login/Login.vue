@@ -1,4 +1,6 @@
 <script>
+import { invoke } from '@tauri-apps/api/core'
+
 import { watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import authStore from '~/store/modules/auth.module'
@@ -10,6 +12,8 @@ export default {
   components: { LoginForm },
   setup() {
     const router = useRouter()
+
+    invoke('my_custom_command')
 
     watchEffect(() => {
       if (authStore.logged) router.push({ name: 'wallet' })
