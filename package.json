@@ -12,7 +12,6 @@
     "prestart": "shx rm -rf dist",
     "start": "rollup -c -w --environment NODE_ENV:development",
     "prepare": "husky install",
-    "dev": "vite",
     "tauri:dev": "pnpm tauri dev",
     "tauri:build": "pnpm tauri build"
   },

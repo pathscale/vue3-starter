@@ -190,7 +190,7 @@ const config = [
           host: '0.0.0.0',
           contentBase: 'dist',
           historyApiFallback: true,
-          port: 8080,
+          port: 3000,
         }),
 
       watch && livereload({ watch: 'dist' }),
