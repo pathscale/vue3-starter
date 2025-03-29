@@ -1,15 +1,13 @@
 use tauri::AppHandle;
-use tauri::Emitter; // Add the Emitter trait to use emit
+use tauri::Emitter;
 use std::thread;
 use std::time::Duration;
 
-// Function to emit events on a separate thread
 fn emit_event(handle: AppHandle) {
     thread::spawn(move || {
         loop {
-            thread::sleep(Duration::from_secs(3)); // Simulate delay
+            thread::sleep(Duration::from_secs(3));
             
-            // Now we can use the emit method from the Emitter trait
             if let Err(e) = handle.emit("backend-event", "Hello from Rust!") {
                 eprintln!("Failed to emit event: {}", e);
             }
@@ -20,11 +18,11 @@ fn emit_event(handle: AppHandle) {
 fn main() {
     tauri::Builder::default()
         .setup(|app| {
-            let handle = app.handle().clone(); // Clone AppHandle to move into `emit_event`
+            let handle = app.handle().clone();
             emit_event(handle);
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![])  // Add invoke handler even if empty
+        .invoke_handler(tauri::generate_handler![])
         .run(tauri::generate_context!())
         .expect("error while running Tauri application");
 }
