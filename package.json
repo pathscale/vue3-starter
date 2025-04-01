@@ -16,9 +16,9 @@
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@brettz9/eslint-plugin": "^1.0.4",
+    "@bulvar/bulma": "^0.11.24",
     "@commitlint/config-conventional": "^17.0.3",
     "@pathscale/bulma-extensions-css-var": "0.0.51",
-    "@pathscale/bulma-pull-2981-css-var-only": "^0.9.6-1",
     "@pathscale/fonts-metroclean": "^1.0.8",
     "@pathscale/rollup-plugin-vue3-ui-css-purge": "^0.0.40",
     "@pathscale/vue3-svg-icons": "^0.0.12",

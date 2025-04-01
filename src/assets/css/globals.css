@@ -1,3 +1,9 @@
+@media screen and (width >= 1024px) {
+  .section {
+    padding: var(--section-padding);
+  }
+}
+
 html,
 body {
   padding: 0;
