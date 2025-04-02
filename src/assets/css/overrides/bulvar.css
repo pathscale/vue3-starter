@@ -1,3 +1,17 @@
+a.dropdown-item.is-active,
+button.dropdown-item.is-active,
+.menu-list a.is-active {
+  color: var(--dropdown-item-active-color) !important;
+}
+
+.navbar-item.is-active {
+  color: var(--navbar-item-hover-background-color) !important;
+}
+
+.step-item.is-active {
+  color: var(--navbar-item-active-color) !important;
+}
+
 @media screen and (width >= 1024px) {
   .section {
     padding: var(--section-padding);
