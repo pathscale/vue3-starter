@@ -27,9 +27,6 @@ const wssConfigure = () => {
       },
     },
     errors,
-    onError({ message }) {
-      console.log(message)
-    },
   })
   console.log('wss client configured')
 }

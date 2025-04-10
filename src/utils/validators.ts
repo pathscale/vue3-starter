@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export const emailValidation =
   /^(([^<>()\\[\].,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[(?:\d{1,3}\.){3}\d{1,3}])|(([a-zA-Z\-\d]+\.)+[a-zA-Z]{2,}))$/
 
-export const required = x => Boolean(x)
+export const required = Boolean
 
 export const useEmail = {
   $value: ref(process.env.VUE_APP_USERNAME + '@test.com'), // TODO: remove

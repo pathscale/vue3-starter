@@ -1,6 +1,4 @@
 import { makeState } from '../makeState'
-import api from '~/api'
-import { encodePassword } from '~/utils/encoders'
 
 export interface ILogin {
   username: string
@@ -9,7 +7,7 @@ export interface ILogin {
 
 interface IState {
   logged: boolean
-  role: null
+  role: string | null
   loading: Record<string, unknown>
   error: Record<string, unknown>
 }
@@ -24,6 +22,20 @@ interface IActions {
   logout: () => void
 }
 
+const mockAuthResponse = {
+  userPublicId: 'mock-user-id-123',
+  serviceTokens: {
+    user: 'mock-service-token-456',
+  },
+  organizations: {
+    publicId: ['mock-org-id-789'],
+  },
+}
+
+const mockAppResponse = {
+  role: 'admin',
+}
+
 const slices = makeState<IState, IMutations, IActions>({
   initialState: {
     logged: false,
@@ -33,36 +45,11 @@ const slices = makeState<IState, IMutations, IActions>({
   },
   mutations: {
     async login(state: IState, payload: ILogin) {
-      const { userPublicId, serviceTokens, organizations } = await api.auth.connect<{
-        userPublicId: string
-        serviceTokens: {
-          user: string
-        }
-        organizations: {
-          publicId: string[]
-        }
-      }>([
-        '0login',
-        '1' + payload.username.split('@')[0], // TODO remove
-        '2' + encodePassword(payload.password),
-        '31',
-        '424787297130491616',
-        '5android',
-      ])
-
-      const content = [
-        userPublicId,
-        serviceTokens.user,
-        '24787297130491616',
-        'android',
-        organizations.publicId[0],
-      ]
-
-      const { role } = await api.app.connect(content)
-
+      await new Promise(resolve => setTimeout(resolve, 500))
+      const { userPublicId, serviceTokens, organizations } = mockAuthResponse
+      const { role } = mockAppResponse
       state.role = role
       state.logged = true
-      console.log('aca estoy', state.logged)
     },
 
     logout() {

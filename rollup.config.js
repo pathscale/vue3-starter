@@ -14,7 +14,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import serve from 'rollup-plugin-serve'
 import styles from 'rollup-plugin-styles'
 import sucrase from '@rollup/plugin-sucrase'
-import vue from '@vitejs/plugin-vue'
+import vue from '@pathscale/rollup-plugin-vue3'
 import vue3svg from '@pathscale/vue3-svg-icons'
 import vue3uiPurge from '@pathscale/rollup-plugin-vue3-ui-css-purge'
 import zlib from 'zlib'
@@ -171,13 +171,13 @@ const config = [
 
       prod && terser({ format: { comments: false } }),
       prod &&
-        gzip({
-          fileName: '.br',
-          customCompression: content =>
-            zlib.brotliCompressSync(Buffer.from(content), {
-              params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 11 },
-            }),
-        }),
+      gzip({
+        fileName: '.br',
+        customCompression: content =>
+          zlib.brotliCompressSync(Buffer.from(content), {
+            params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 11 },
+          }),
+      }),
 
       html({
         publicPath: env.parsed.BASE_URL,
@@ -186,12 +186,12 @@ const config = [
       }),
 
       watch &&
-        serve({
-          host: '0.0.0.0',
-          contentBase: 'dist',
-          historyApiFallback: true,
-          port: 5000,
-        }),
+      serve({
+        host: '0.0.0.0',
+        contentBase: 'dist',
+        historyApiFallback: true,
+        port: 5000,
+      }),
 
       watch && livereload({ watch: 'dist' }),
     ],
