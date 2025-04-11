@@ -1,4 +1,5 @@
 [run]
+# Prepends $PATH with `node` executable which's a symlink to `bun`
 bun = true
 
 [install]
