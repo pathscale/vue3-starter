@@ -1,0 +1,12 @@
+[run]
+bun = true
+
+[install]
+# Use the exact versions specified in package.json
+exact = true
+
+# Cache downloaded packages
+cache = true
+
+# Use frozen installation (equivalent to npm's --frozen-lockfile)
+frozen = true
