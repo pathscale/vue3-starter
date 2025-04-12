@@ -1,5 +1,9 @@
 # Vue3-Starter
 
+## Requirements
+
+- [Bun](https://bun.sh) >= 1.0.0
+
 ## Copying this project
 
 You can quickstart your project by [using this template](https://github.com/pathscale/vue3-starter/generate)
@@ -23,24 +27,30 @@ Alternatively you can use the old fashioned
 
 ## Project setup
 
-```
-npm install
+```bash
+bun install
 ```
 
 ## Run development server with hot reload
 
-```
-npm run start
+```bash
+bun run start
 ```
 
 ## Make production ready build, minified and purged
 
-```
-npm run build
+```bash
+bun run build
 ```
 
 ## Scan your code for potential errors
 
+```bash
+bun run lint
 ```
-npm run lint
-```
+
+## Development Notes
+
+- This project uses Bun as the package manager and runtime environment
+- All commands should be run using `bun run` instead of `npm run`
+- The project includes a `bun.lock` file for dependency management
