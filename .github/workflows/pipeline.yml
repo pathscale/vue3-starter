@@ -16,15 +16,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Show Bun version
+        run: |
+          echo "Bun version: $(bun --version)"
+
       - name: Install Dependencies
         env:
           HUSKY_SKIP_INSTALL: 1
         run: |
-          npm install --frozen-lockfile
+          bun install --frozen
 
-      - name: Npm audit
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm audit --prod
+      # bun doesn't support audit yet
+      # https://github.com/oven-sh/bun/issues/5359
+      # - name: Npm audit
+      #   if: steps.cache-node-modules.outputs.cache-hit != 'true'
+      #   run: npm audit --prod
 
       - name: Set version
         run: |
@@ -39,7 +50,7 @@ jobs:
           cat .env | grep VUE_APP_VERSION_NUMBER
 
       - name: Build project
-        run: npm run build --if-present
+        run: bun run build --if-present
 
       - name: Configure compression
         run: |
