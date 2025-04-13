@@ -5,8 +5,8 @@
   "identifier": "vue3.dev",
   "build": {
     "frontendDist": "../dist",
-    "beforeDevCommand": "npm run start",
-    "beforeBuildCommand": "npm run build"
+    "beforeDevCommand": "bun run start",
+    "beforeBuildCommand": "bun run build"
   },
   "app": {
     "windows": [
