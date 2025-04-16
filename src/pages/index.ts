@@ -11,3 +11,5 @@ export { default as Card } from './App/Card/Card.vue'
 // Public pages
 
 export { default as Login } from './Auth/Login/Login.vue'
+
+export { default as TestSlider } from './App/TestSlider.vue'

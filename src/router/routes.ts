@@ -1,5 +1,5 @@
 import Main from '~/layouts/Main.layout.vue'
-import { Wallet, Loans, Account, Card, Settings, Login } from '~/pages'
+import { Wallet, Loans, Account, Card, Settings, Login, TestSlider } from '~/pages'
 
 const routes = [
   {
@@ -40,6 +40,12 @@ const routes = [
         path: 'settings',
         component: Settings,
         meta: { private: true },
+      },
+      {
+        path: 'test-slider',
+        name: 'TestSlider',
+        component: TestSlider,
+        // meta: { private: true },
       },
     ],
   },
