@@ -16,6 +16,12 @@ Alternatively you can use the old fashioned
 
     git clone https://github.com/pathscale/vue3-starter.git --depth 1
 
+Copy dotenv file:
+
+```shell
+cp .env.example .env
+```
+
 ## What's Included
 
 - [Vue3-UI](https://github.com/pathscale/vue3-ui) and Bulma with css variables support
