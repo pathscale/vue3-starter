@@ -18,7 +18,7 @@ Alternatively you can use the old fashioned
 
 Copy dotenv file:
 
-```shell
+```bash
 cp .env.example .env
 ```
 
