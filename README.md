@@ -54,6 +54,13 @@ bun run build
 ```bash
 bun run lint
 ```
+## Generate DTOs from JSON schema
+
+To generate DTOs (Data Transfer Objects) from a JSON schema, use the following command:
+
+```
+bun run schema
+```
 
 ## Development Notes
 

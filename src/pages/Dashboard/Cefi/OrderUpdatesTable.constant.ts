@@ -1,0 +1,22 @@
+export const ORDER_UPDATES_TABLE_COLUMNS = [
+  // { key: 'client_id', label: 'Client ID', type: 'string' },
+  { key: "instrument", label: "Instrument", type: "string" },
+  { key: "size", label: "Size", type: "number" },
+  { key: "price", label: "Price", type: "number" },
+  {
+    key: "average_filled_price",
+    label: "Average Filled Price",
+    type: "number",
+  },
+  { key: "filled_size", label: "Filled Size", type: "number" },
+  { key: "last_filled_size", label: "Last Filled Size", type: "number" },
+  { key: "last_filled_price", label: "Last Filled Price", type: "number" },
+  { key: "ty", label: "Type", type: "string" },
+  { key: "status", label: "Status", type: "string" },
+  { key: "side", label: "Side", type: "string" },
+  { key: "account", label: "Account", type: "string" },
+  { key: "update_lt", label: "Update LT", type: "number" },
+  { key: "update_est", label: "Update EST", type: "number" },
+  { key: "update_tst", label: "Update TST", type: "number" },
+  { key: "reason", label: "Reason", type: "string" },
+];
