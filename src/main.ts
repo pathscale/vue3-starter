@@ -4,9 +4,6 @@ import "./Icons.vue";
 import {
   CustomFooter,
   CustomHeader,
-  CustomTable,
-  Loader,
-  Modal,
 } from "./components";
 
 import i18n from "./i18n";
@@ -118,10 +115,6 @@ app.component("VStepItem", VStepItem);
 app.component("VSlider", VSlider);
 app.component("VTooltip", VTooltip);
 app.component("Icon", Icon);
-
-app.component("Modal", Modal);
-app.component("Loader", Loader);
-app.component("CTable", CustomTable);
 
 app.component("CustomHeader", CustomHeader);
 app.component("CustomFooter", CustomFooter);

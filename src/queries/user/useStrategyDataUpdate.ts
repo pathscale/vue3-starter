@@ -28,24 +28,3 @@ export const updateStrategyDataUpdate = (payload: StreamResponse) => {
     );
   }
 };
-
-export const useStrategyDataUpdate = () => {
-  const globalStore = useGlobalStore();
-  const enabled = ref(false);
-
-  watch(
-    () => globalStore.isConnected,
-    () => {
-      enabled.value = globalStore.isConnected;
-    },
-    { immediate: true },
-  );
-
-  const query = useQuery({
-    queryKey: ["StrategyDataUpdate"],
-    queryFn: getFn,
-    enabled,
-    retry: 1,
-  });
-  return query;
-};

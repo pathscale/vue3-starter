@@ -1,10 +1,7 @@
-<script lang="ts" setup>
-import { SettingsLayout } from "~/layouts";
-import EncryptedKeysTable from "../components/EncryptedKeysTable.vue";
-</script>
-
 <template>
-  <settings-layout>
-    <encrypted-keys-table />
-  </settings-layout>
+  <div>
+    <div class="level">
+      <div class="title">Settings - Encrypted Keys</div>
+    </div>
+  </div>
 </template>

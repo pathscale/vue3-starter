@@ -6,12 +6,8 @@ import wssAdapter from "./wss-adapter/wssAdapter";
 
 import { $toast } from "~/main";
 import {
-  updateSubS3TerminalBestAskBestBid,
   updateUserSubOrders,
   updateUserSubPosition,
-  updateUserSubStrategy3PositionsClosing,
-  updateUserSubStrategy3PositionsOpening,
-  updateUserSubStrategyData,
 } from "~/queries/user";
 
 export const cleanupLocalStorageOnLogout = () => {
@@ -43,16 +39,8 @@ const wssConfigure = () => {
           }, 2000);
         },
         subscriptions: {
-          UserSubPriceDifference: updateUserSubStrategyData,
-          UserSubPrice0: updateUserSubStrategyData,
-          UserSubBestBidAskAcrossExchanges: updateUserSubStrategyData,
           UserSubPosition: updateUserSubPosition,
           UserSubOrders: updateUserSubOrders,
-          SubS3TerminalBestAskBestBid: updateSubS3TerminalBestAskBestBid,
-          UserSubStrategy3PositionsOpening:
-            updateUserSubStrategy3PositionsOpening,
-          UserSubStrategy3PositionsClosing:
-            updateUserSubStrategy3PositionsClosing,
         },
       },
     },

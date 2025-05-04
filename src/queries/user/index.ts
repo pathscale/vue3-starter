@@ -1,5 +1,3 @@
-export * from "./useStrategyDataUpdate";
-
 export * from "./useUserSubStrategyData";
 
 export * from "./useUserGetSymbolList";

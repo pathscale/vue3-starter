@@ -8,27 +8,9 @@ import {
   Config,
   DashboardHome,
   EncryptedKeys,
-  Events,
-  EventsDebug,
-  FundingComparison,
-  HedgedOrders,
-  HistoricalData,
-  Jobs,
-  Ledger,
-  LivePosition,
-  LivePositions,
-  Orders,
-  Performance,
-  Positions,
   Signals,
-  Slippage,
-  SpreadMean,
   Strategies,
-  StrategyLedger,
-  StreamData,
-  Tests,
-  Trade,
-  TradingTerminal,
+  Orders,
 } from "~/pages";
 import type { RoutesType } from "./router.types";
 
@@ -79,13 +61,6 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
   },
   {
     route: {
-      component: HistoricalData as unknown as Component,
-      name: "historicalData",
-      path: "/strategies/:strategyId/historical",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
       component: Signals as unknown as Component,
       name: "signals",
       path: "/strategies/:strategyId/signals",
@@ -100,72 +75,9 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
   },
   {
     route: {
-      component: Events as unknown as Component,
-      name: "events",
-      path: "/strategies/:strategyId/events",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: EventsDebug as unknown as Component,
-      name: "eventDebug",
-      path: "/strategies/:strategyId/eventDebug",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
       component: Orders as unknown as Component,
       name: "orders",
       path: "/strategies/:strategyId/orders",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: StrategyLedger as unknown as Component,
-      name: "strategyLedger",
-      path: "/strategies/:strategyId/ledger",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: HedgedOrders as unknown as Component,
-      name: "hedgedOrders",
-      path: "/strategies/:strategyId/hedgedOrders",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: Slippage as unknown as Component,
-      name: "slippage",
-      path: "/strategies/:strategyId/slippage",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: LivePosition as unknown as Component,
-      name: "livePosition",
-      path: "/strategies/:strategyId/livePosition",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: Positions as unknown as Component,
-      name: "positions",
-      path: "/strategies/:strategyId/positions",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: SpreadMean as unknown as Component,
-      name: "spreadMean",
-      path: "/strategies/:strategyId/spreadMean",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: Tests as unknown as Component,
-      name: "tests",
-      path: "/strategies/:strategyId/tests",
     } as RouteRecordRaw,
   },
   {
@@ -175,51 +87,7 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
       path: "/strategies/:strategyId/blacklist",
     } as RouteRecordRaw,
   },
-  {
-    route: {
-      component: StreamData as unknown as Component,
-      name: "streamData",
-      path: "/strategies/:strategyId/stream",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: TradingTerminal as unknown as Component,
-      name: "tradingTerminal",
-      path: "/strategies/:strategyId/tradingTerminal",
-    } as RouteRecordRaw,
-  },
-  {
-    isMenuItem: false,
-    title: "Ledger",
-    icon: "signal",
-    route: {
-      component: Ledger as unknown as Component,
-      name: "ledger",
-      path: "/ledger",
-    } as RouteRecordRaw,
-  },
-  {
-    isMenuItem: true,
-    title: "Live Positions",
-    icon: "cash",
-    route: {
-      component: LivePositions as unknown as Component,
-      name: "livePositions",
-      path: "/livePositions",
-    } as RouteRecordRaw,
-  },
 
-  {
-    isMenuItem: true,
-    title: "Trading Terminal",
-    icon: "download",
-    route: {
-      component: Trade as unknown as Component,
-      name: "trade",
-      path: "/trade",
-    } as RouteRecordRaw,
-  },
   {
     isMenuItem: false,
     title: "Encrypted Keys",
@@ -239,36 +107,10 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
     } as RouteRecordRaw,
   },
   {
-    isMenuItem: true,
-    title: "Performance",
-    icon: "cash",
-    route: {
-      component: Performance as unknown as Component,
-      name: "performance",
-      path: "/performance",
-    } as RouteRecordRaw,
-  },
-  {
-    isMenuItem: true,
-    title: "Funding Comparison",
-    route: {
-      component: FundingComparison as unknown as Component,
-      name: "fundingComparison",
-      path: "/fundingComparison",
-    } as RouteRecordRaw,
-  },
-  {
     route: {
       component: Config as unknown as Component,
       name: "config",
       path: "/strategies/:strategyId/config",
-    } as RouteRecordRaw,
-  },
-  {
-    route: {
-      component: Jobs as unknown as Component,
-      name: "jobs",
-      path: "/strategies/:strategyId/jobs",
     } as RouteRecordRaw,
   },
 ].map((e, i) => ({ ...e, index: i }));

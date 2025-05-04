@@ -57,19 +57,4 @@ const toBreadCrumbLink = (index: number) => {
 </template>
 
 <style>
-/* .submenu1 {
-  background-color: var(--submenu1-background-color) !important;
-}
-
-.submenu1 .tabs li.is-active a {
-  color: var(--submenu1-tab-active-color) !important;
-}
-
-.submenu1 .tabs a {
-  color: var(--submenu1-tab-link-color);
-}
-
-.submenu1 .tabs a:hover {
-  color: var(--submenu1-tab-hover-color);
-} */
 </style>

@@ -91,19 +91,4 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-/* .navbar {
-  background-color: var(--navbar-background-color, black) !important;
-}
-
-.navbar .tabs li.is-active a {
-  color: var(--navbar-tab-active-color) !important;
-}
-
-.navbar .tabs a {
-  color: var(--navbar-tab-link-color);
-}
-
-.navbar .tabs a:hover {
-  color: var(--navbar-tab-hover-color);
-} */
 </style>

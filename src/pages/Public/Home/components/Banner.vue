@@ -10,9 +10,4 @@
 </template>
 
 <style scoped>
-@media only screen and (min-width: 1024px) {
-  .h-screen {
-    height: 85vh;
-  }
-}
 </style>
