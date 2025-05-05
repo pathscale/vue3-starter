@@ -6,16 +6,16 @@
  */
 
 export interface AuthorizeParams {
-  username: string;
-  token: string;
-  service: string;
-  deviceId: string;
-  deviceOs: string;
+  username: string
+  token: string
+  service: string
+  deviceId: string
+  deviceOs: string
 }
 /* Response */
 
 export interface AuthorizeResponse {
-  success: boolean;
-  userId: number;
-  role: string;
+  success: boolean
+  userId: number
+  role: string
 }

@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "cefi",
+      "name": "Honey",
       "devDependencies": {
         "@babel/core": "7.26.10",
         "@biomejs/biome": "1.9.4",

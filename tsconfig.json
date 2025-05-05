@@ -25,10 +25,10 @@
       "@vue/runtime-dom/dist/runtime-dom",
       "node"
     ],
-    "importsNotUsedAsValues": "preserve"
+    "verbatimModuleSyntax": true
   },
   "include": [
-    "src/**/*.ts",
+    "src/**/*.ts", 
     "src/**/*.tsx",
     "src/**/*.vue",
     "src/utils/api.js"

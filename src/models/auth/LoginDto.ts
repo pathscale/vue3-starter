@@ -6,20 +6,20 @@
  */
 
 export interface LoginParams {
-  username: string;
-  password: string;
-  service: string;
-  deviceId: string;
-  deviceOs: string;
+  username: string
+  password: string
+  service: string
+  deviceId: string
+  deviceOs: string
 }
 /* Response */
 
 export interface LoginResponse {
-  username: string;
-  displayName: string;
-  avatar?: string;
-  role: string;
-  userId: number;
-  userToken: string;
-  adminToken: string;
+  username: string
+  displayName: string
+  avatar?: string
+  role: string
+  userId: number
+  userToken: string
+  adminToken: string
 }

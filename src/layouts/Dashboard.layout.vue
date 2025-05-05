@@ -6,7 +6,6 @@ import {
   CustomHeader,
   Submenu1,
   Submenu2,
-  ThemeBuilder,
 } from "~/components";
 
 const router = useRouter();

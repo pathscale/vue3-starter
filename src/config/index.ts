@@ -13,7 +13,6 @@ const config = {
   version: process.env.VUE_APP_VERSION_NUMBER,
   authServer: process.env.AUTH_SERVER || "ws://localhost:8080",
   appServer: process.env.APP_SERVER || "ws://localhost:8081",
-  cefiServer: "wss://example-aws-node-1.jeekrs.com/cefi-strategy/",
 };
 
 export default config;

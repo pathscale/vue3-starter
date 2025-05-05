@@ -6,9 +6,7 @@ export { default as Strategies } from "./Dashboard/Strategies/index.page.vue";
 
 export { default as AppDebug } from "./Dashboard/Settings/AppDebug/index.page.vue";
 
-export { default as EncryptedKeys } from "./Dashboard/Settings/EncryptedKeys/index.page.vue";
-
-export { default as Cefi } from "./Dashboard/Cefi/index.page.vue";
+export { default as Honey } from "./Dashboard/Honey/index.page.vue";
 
 export { default as Signals } from "./Dashboard/Strategies/Signals/index.page.vue";
 

@@ -3,11 +3,10 @@ import type { RouteRecordRaw } from "vue-router";
 import {
   AppDebug,
   Blacklist,
-  Cefi,
+  Honey,
   ComplexSignals,
   Config,
   DashboardHome,
-  EncryptedKeys,
   Signals,
   Strategies,
   Orders,
@@ -17,15 +16,6 @@ import type { RoutesType } from "./router.types";
 export interface RoutesTypeCustom extends RoutesType {
   index: number;
 }
-
-interface RedirectType {
-  path: string;
-  redirect: string;
-}
-
-export const DashboardRedirects: RedirectType[] = [
-  { path: "/settings", redirect: "/settings/encryptedKeys" },
-];
 
 export const DashboardRoutes: RoutesTypeCustom[] = [
   {
@@ -40,12 +30,12 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
   },
   {
     isMenuItem: false,
-    title: "Cefi",
+    title: "Honey",
     icon: "orders",
     route: {
-      component: Cefi as unknown as Component,
-      name: "cefi",
-      path: "/cefi",
+      component: Honey as unknown as Component,
+      name: "honey",
+      path: "/honey",
     } as RouteRecordRaw,
   },
 
@@ -85,16 +75,6 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
       component: Blacklist as unknown as Component,
       name: "blacklist",
       path: "/strategies/:strategyId/blacklist",
-    } as RouteRecordRaw,
-  },
-
-  {
-    isMenuItem: false,
-    title: "Encrypted Keys",
-    route: {
-      component: EncryptedKeys as unknown as Component,
-      name: "encryptedKeys",
-      path: "/settings/encryptedKeys",
     } as RouteRecordRaw,
   },
   {

@@ -8,7 +8,7 @@ import LoginForm from "./components/Login.form.vue";
       Hello
     </div>
     <div class="subtitle">
-      Welcome to the CeFi
+      Welcome to the Honey
     </div>
   </div>
   <login-form />

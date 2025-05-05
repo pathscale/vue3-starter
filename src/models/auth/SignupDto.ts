@@ -6,16 +6,16 @@
  */
 
 export interface SignupParams {
-  username: string;
-  password: string;
-  email: string;
-  phone: string;
-  agreedTos: boolean;
-  agreedPrivacy: boolean;
+  username: string
+  password: string
+  email: string
+  phone: string
+  agreedTos: boolean
+  agreedPrivacy: boolean
 }
 /* Response */
 
 export interface SignupResponse {
-  username: string;
-  userId: number;
+  username: string
+  userId: number
 }

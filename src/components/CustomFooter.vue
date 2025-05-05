@@ -4,6 +4,6 @@ import config from "~/config";
 
 <template>
   <footer class="has-text-centered mt-3">
-    <p>Build v{{ config.version }}</p>
+    <p>Build v{{ config.version }}aF</p>
   </footer>
 </template>

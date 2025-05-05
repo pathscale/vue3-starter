@@ -6,7 +6,6 @@ import { Submenu1, Submenu2 } from "~/components";
 import { useLogout } from "~/mutations";
 import { DashboardRoutes } from "~/router/routes";
 import DashboardMenu from "./DashboardMenu.vue";
-import ExchangeLatency from "./ExchangeLatency.vue";
 
 const menuItems = computed(() => {
   const routes = DashboardRoutes;

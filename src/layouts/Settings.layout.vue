@@ -9,14 +9,9 @@ const routeName = computed(() => route.name as unknown as string);
 <template>
   <div class="tabs is-boxed">
     <ul>
-      <li :class="{ 'is-active': routeName === 'encryptedKeys' }">
-        <router-link :to="{ name: 'encryptedKeys' }">
-          <span>Encrypted Keys</span>
-        </router-link>
-      </li>
       <li :class="{ 'is-active': routeName === 'appDebug' }">
         <router-link :to="{ name: 'appDebug' }">
-          <span>App Debug</span>
+          <span>App Config</span>
         </router-link>
       </li>
     </ul>

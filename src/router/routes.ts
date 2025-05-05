@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from "vue-router";
-import { DashboardRedirects, DashboardRoutes } from "./dashboard.routes";
+import { DashboardRoutes } from "./dashboard.routes";
 import { normalizeRoutes } from "./utils";
 
 import authRoutes from "./auth.routes";
@@ -11,7 +11,6 @@ import type { Component } from "vue";
 
 const normalizedDashboardRoutes = normalizeRoutes(
   DashboardRoutes,
-  DashboardRedirects,
 );
 
 const routes: RouteRecordRaw[] = [
