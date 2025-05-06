@@ -6,11 +6,6 @@ import errors from '../../docs/error_codes/error_codes.json'
 
 import {
   updateUserSubOrders,
-  updateUserSubPosition,
-  updateSubS3TerminalBestAskBestBid,
-  updateUserSubStrategyData,
-  updateUserSubStrategy3PositionsOpening,
-  updateUserSubStrategy3PositionsClosing,
 } from '~/queries/user'
 import { $toast } from '~/main'
 
@@ -43,14 +38,7 @@ const wssConfigure = () => {
           }, 2000)
         },
         subscriptions: {
-          UserSubPriceDifference: updateUserSubStrategyData,
-          UserSubPrice0: updateUserSubStrategyData,
-          UserSubBestBidAskAcrossExchanges: updateUserSubStrategyData,
-          UserSubPosition: updateUserSubPosition,
           UserSubOrders: updateUserSubOrders,
-          SubS3TerminalBestAskBestBid: updateSubS3TerminalBestAskBestBid,
-          UserSubStrategy3PositionsOpening: updateUserSubStrategy3PositionsOpening,
-          UserSubStrategy3PositionsClosing: updateUserSubStrategy3PositionsClosing,
         },
       },
     },
