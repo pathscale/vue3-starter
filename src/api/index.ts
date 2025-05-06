@@ -1,6 +1,4 @@
-import wssAdapter from './wss-adapter/wssAdapter'
-
-const api = wssAdapter.sessions
-const service = wssAdapter.services
+const api = {}
+const service = {}
 
 export { api, service }
