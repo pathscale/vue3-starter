@@ -23,13 +23,7 @@ const usernameTest = "dev0"
 const passwordTest = "12345678"
 
 function onSubmit() {
-  login.mutate({
-    username: usernameTest, 
-    password: passwordTest,
-    service: 'User',
-    deviceId: '24787297130491616',
-    deviceOs: 'android',
-  })
+  router.push("/home");
 }
 
 

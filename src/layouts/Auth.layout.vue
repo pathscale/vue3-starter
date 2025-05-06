@@ -7,12 +7,12 @@ const router = useRouter();
 const routeName = computed(() => route.name as unknown as string);
 
 onMounted(() => {
-  const userToken = localStorage.getItem("userToken");
-  if (userToken) {
-    router.push({
-      name: "dashboardHome",
-    });
-  }
+  // const userToken = localStorage.getItem("userToken");
+  // if (userToken) {
+  //   router.push({
+  //     name: "dashboardHome",
+  //   });
+  // }
 });
 </script>
 
