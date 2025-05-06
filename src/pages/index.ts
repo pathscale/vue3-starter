@@ -6,7 +6,7 @@ export { default as Strategies } from "./Dashboard/Strategies/index.page.vue";
 
 export { default as AppDebug } from "./Dashboard/Settings/AppDebug/index.page.vue";
 
-export { default as Honey } from "./Dashboard/Honey/index.page.vue";
+export { default as Honey } from "./Dashboard/Dashboard/index.page.vue";
 
 export { default as Signals } from "./Dashboard/Strategies/Signals/index.page.vue";
 

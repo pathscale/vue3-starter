@@ -185,7 +185,7 @@ const config = [
         }),
       html({
         publicPath: env.parsed.BASE_URL,
-        title: "Honey",
+        title: "vue3-starter",
         template,
       }),
 

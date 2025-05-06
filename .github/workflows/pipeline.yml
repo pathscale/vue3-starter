@@ -1,4 +1,4 @@
-name: Honey
+name: vue3-starter
 
 on:
   push:

@@ -2,8 +2,6 @@
 import { computed, onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-import { ThemeBuilder } from "~/components";
-
 const route = useRoute();
 const router = useRouter();
 const routeName = computed(() => route.name as unknown as string);

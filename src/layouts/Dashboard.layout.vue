@@ -25,7 +25,6 @@ onMounted(() => {
   }
 });
 
-const showThemeBuilder = ref(false);
 </script>
 
 <template>
