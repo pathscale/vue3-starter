@@ -1,19 +1,6 @@
 <script lang="ts" setup>
-import { useValidation } from "vue-composable";
-
-import { useEmail, useErrorMessage } from "~/utils/validators";
-const form = useValidation({
-  email: useEmail(),
-});
-
-const errorMessage = useErrorMessage(form);
 
 function onSubmit() {
-  const data = {
-    email: form.email.$value,
-  };
-
-  console.log(data);
 }
 </script>
 
@@ -31,15 +18,13 @@ function onSubmit() {
     Please enter your email address. We will send you an email to reset your password.
   </div>
   <form @submit.prevent="onSubmit">
-    <v-field class="pb-2" :message="errorMessage('email')" type="is-danger">
-      <v-input type="email" name="email" autocomplete="email" placeholder="Enter your email"
-        v-model="form.email.$value" />
+    <v-field class="pb-2" type="is-danger">
+      <v-input type="email" name="email" autocomplete="email" placeholder="Enter your email" />
     </v-field>
-    <v-button size="is-medium" expanded class="my-5 is-capitalized" :loading="loading" type="is-primary"
-      native-type="submit" :disabled="form.$anyInvalid">
+    <v-button size="is-medium" expanded class="my-5 is-capitalized" type="is-primary"
+      native-type="submit" >
       Submit
     </v-button>
-    <v-field v-show="error" :message="error" type="is-danger" />
   </form>
   <div class="has-text-right">
     <span> Don't have an account yet? </span>
