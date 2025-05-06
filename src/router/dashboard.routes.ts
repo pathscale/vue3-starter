@@ -1,9 +1,7 @@
 import type { Component } from "vue";
 import {
   AppDebug,
-  Blacklist,
   Honey,
-  ComplexSignals,
   Config,
   DashboardHome,
   Signals,
@@ -57,23 +55,9 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
   },
   {
     route: {
-      component: ComplexSignals as unknown as Component,
-      name: "complexSignals",
-      path: "/strategies/:strategyId/complexSignals",
-    },
-  },
-  {
-    route: {
       component: Orders as unknown as Component,
       name: "orders",
       path: "/strategies/:strategyId/orders",
-    },
-  },
-  {
-    route: {
-      component: Blacklist as unknown as Component,
-      name: "blacklist",
-      path: "/strategies/:strategyId/blacklist",
     },
   },
   {

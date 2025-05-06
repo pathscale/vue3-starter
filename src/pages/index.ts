@@ -12,11 +12,7 @@ export { default as Signals } from "./Dashboard/Strategies/Signals/index.page.vu
 
 export { default as Orders } from "./Dashboard/Strategies/Orders/index.page.vue";
 
-export { default as Blacklist } from "./Dashboard/Strategies/Blacklist/index.page.vue";
-
 export { default as Config } from "./Dashboard/Strategies/Config/index.page.vue";
-
-export { default as ComplexSignals } from "./Dashboard/Strategies/ComplexSignals/index.page.vue";
 
 // Public Pages
 
