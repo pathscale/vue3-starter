@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useValidation } from 'vue-composable'
-import { useUsername, usePassword, useErrorMessage } from '~/utils/validators'
+import { useUsername, usePassword } from '~/utils/validators'
 import { useRoute, useRouter } from 'vue-router'
 
 import { useLogin } from '~/mutations'
@@ -11,8 +11,6 @@ const router = useRouter()
 const route = useRoute()
 const { login } = useLogin()
 
-const { isPending, error } = login
-
 const form = useValidation({
   username: useUsername(config.username),
   password: usePassword(config.password),
@@ -20,20 +18,22 @@ const form = useValidation({
     $value: ref(true),
   },
 })
+const usernameTest = "dev0"
 
-const errorMessage = useErrorMessage(form)
+const passwordTest = "12345678"
 
 function onSubmit() {
   login.mutate({
-    username: form.username.$value,
-    password: form.password.$value,
+    username: usernameTest, 
+    password: passwordTest,
     service: 'User',
     deviceId: '24787297130491616',
     deviceOs: 'android',
   })
 }
 
-watch([login.isSuccess], () => {
+
+watch([login], () => {
   const redirect = route.query.redirect
   router.push((redirect as string) || {
     name: 'dashboardHome'
@@ -44,13 +44,13 @@ watch([login.isSuccess], () => {
 
 <template>
   <form @submit.prevent="onSubmit">
-    <v-field :message="errorMessage('username')" label="Username" type="is-danger">
-      <v-input name="username" autocomplete="username" placeholder="Enter Your Username" v-model="form.username.$value"
+    <v-field label="Username" type="is-danger">
+      <v-input name="username" autocomplete="username" placeholder="Enter Your Username" v-model="usernameTest"
         autofocus />
     </v-field>
 
-    <v-field :message="errorMessage('password')" label="Password" type="is-danger">
-      <v-input placeholder="Enter Your Password" type="password" v-model="form.password.$value" password-reveal />
+    <v-field label="Password" type="is-danger">
+      <v-input placeholder="Enter Your Password" type="password" v-model="passwordTest" password-reveal />
     </v-field>
 
     <v-field>
@@ -58,10 +58,10 @@ watch([login.isSuccess], () => {
         <span class="ml-1"> Remember my login </span>
       </v-checkbox>
     </v-field>
-    <v-button size="is-medium" expanded class="my-5 is-capitalized" :loading="isPending" type="is-primary"
+    <v-button size="is-medium" expanded class="my-5 is-capitalized" type="is-primary"
       native-type="submit" :disabled="form.$anyInvalid">
       Login
     </v-button>
-    <v-field v-show="error" :message="error" type="is-danger" />
+    <v-field type="is-danger" />
   </form>
 </template>
