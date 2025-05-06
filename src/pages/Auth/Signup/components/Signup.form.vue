@@ -3,7 +3,6 @@ import { ref, watch } from "vue";
 import { useValidation } from "vue-composable";
 import { useRoute, useRouter } from "vue-router";
 import config from "~/config";
-import { useLogin, useSignup } from "~/mutations";
 import {
   useEmail,
   useErrorMessage,
@@ -14,8 +13,6 @@ import {
 
 const router = useRouter();
 const route = useRoute();
-const { login } = useLogin();
-const signup = useSignup();
 const passwordRef = ref(config.password!);
 const form = useValidation({
   username: useUsername(config.username),
@@ -36,27 +33,9 @@ const form = useValidation({
 const errorMessage = useErrorMessage(form);
 
 function onSubmit() {
-  signup.mutate({
-    username: form.username.$value,
-    password: form.password.$value!,
-    email: encodeURIComponent(form.email.$value!),
-    agreedPrivacy: true,
-    agreedTos: true,
-    phone: "",
-    service: "User",
-    deviceId: "24787297130491616",
-    deviceOs: "android",
-  });
+// sign up
 }
 
-watch([signup.isSuccess, login.isSuccess], () => {
-  const redirect = route.query.redirect;
-  router.push(
-    (redirect as string) || {
-      name: "dashboardHome",
-    },
-  );
-});
 </script>
 
 <template>
@@ -98,7 +77,6 @@ watch([signup.isSuccess, login.isSuccess], () => {
       Sign Up Account
     </v-button>
 
-    <v-field v-show="signup.error.value" :message="signup.error.value" type="is-danger" />
   </form>
 </template>
 

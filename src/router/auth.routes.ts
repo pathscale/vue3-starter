@@ -1,8 +1,7 @@
 import type { Component } from "vue";
-import type { RouteRecordRaw } from "vue-router";
 import { ForgotPassword, Login, Signup, SwitchServer } from "~/pages";
 
-const routes: RouteRecordRaw[] = [
+const routes = [
   {
     component: Login as unknown as Component,
     name: "login",

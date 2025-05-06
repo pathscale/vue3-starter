@@ -1,5 +1,4 @@
 import type { Component } from "vue";
-import type { RouteRecordRaw } from "vue-router";
 import {
   AppDebug,
   Blacklist,
@@ -26,7 +25,7 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
       component: DashboardHome as unknown as Component,
       name: "dashboardHome",
       path: "/home",
-    } as RouteRecordRaw,
+    },
   },
   {
     isMenuItem: false,
@@ -36,7 +35,7 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
       component: Honey as unknown as Component,
       name: "honey",
       path: "/honey",
-    } as RouteRecordRaw,
+    },
   },
 
   {
@@ -47,35 +46,35 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
       component: Strategies as unknown as Component,
       name: "strategies",
       path: "/strategies/:strategyId",
-    } as RouteRecordRaw,
+    },
   },
   {
     route: {
       component: Signals as unknown as Component,
       name: "signals",
       path: "/strategies/:strategyId/signals",
-    } as RouteRecordRaw,
+    },
   },
   {
     route: {
       component: ComplexSignals as unknown as Component,
       name: "complexSignals",
       path: "/strategies/:strategyId/complexSignals",
-    } as RouteRecordRaw,
+    },
   },
   {
     route: {
       component: Orders as unknown as Component,
       name: "orders",
       path: "/strategies/:strategyId/orders",
-    } as RouteRecordRaw,
+    },
   },
   {
     route: {
       component: Blacklist as unknown as Component,
       name: "blacklist",
       path: "/strategies/:strategyId/blacklist",
-    } as RouteRecordRaw,
+    },
   },
   {
     isMenuItem: false,
@@ -84,13 +83,13 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
       component: AppDebug as unknown as Component,
       name: "appDebug",
       path: "/settings/appDebug",
-    } as RouteRecordRaw,
+    },
   },
   {
     route: {
       component: Config as unknown as Component,
       name: "config",
       path: "/strategies/:strategyId/config",
-    } as RouteRecordRaw,
+    },
   },
 ].map((e, i) => ({ ...e, index: i }));

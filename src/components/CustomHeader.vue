@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { cleanupLocalStorageOnLogout } from "~/api/wssConfigure";
 import { Submenu1, Submenu2 } from "~/components";
-import { useLogout } from "~/mutations";
 import { DashboardRoutes } from "~/router/routes";
 import DashboardMenu from "./DashboardMenu.vue";
 
@@ -13,7 +11,6 @@ const menuItems = computed(() => {
 });
 
 const router = useRouter();
-const logoutMutation = useLogout();
 const isActive = ref(false);
 
 const route = useRoute();
@@ -21,8 +18,6 @@ const route = useRoute();
 const showStrategies = computed(() => route.path.includes("strategies"));
 
 const logout = () => {
-  logoutMutation.mutate();
-  cleanupLocalStorageOnLogout();
   router.push("/login");
 };
 
@@ -68,7 +63,7 @@ onBeforeUnmount(() => {
     </template>
     <template #end>
       <template v-if="isLoggedIn">
-        <v-navbar-item tag="router-link" :to="{ name: 'encryptedKeys' }" :is-active="true"
+        <v-navbar-item tag="router-link" :to="{ name: 'appDebug' }" :is-active="true"
           class="is-flex is-align-items-center">
           <icon name="settings" fill="black" />
           <span class="ml-2 is-hidden-desktop">Settings</span>

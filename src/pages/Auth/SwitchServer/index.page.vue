@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import { appServer } from "~/api/services/app.service";
-const _appServer = ref(appServer);
 const onSubmitAppServer = () => {
-  localStorage.setItem("appServer", _appServer.value);
   window.location.reload();
 };
 </script>
@@ -19,7 +15,7 @@ const onSubmitAppServer = () => {
   </div>
   <form @submit.prevent="onSubmitAppServer">
     <v-field label="Server URI">
-      <v-input v-model="_appServer" required />
+      <v-input required />
     </v-field>
     <v-button native-type="submit" type="is-black">Set</v-button>
   </form>
