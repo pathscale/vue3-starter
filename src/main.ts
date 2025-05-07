@@ -1,7 +1,10 @@
-import { createPinia } from "pinia";
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import "./Icons.vue";
 import {
+  Loader,
+  Modal,
+  CustomTable,
   CustomFooter,
   CustomHeader,
 } from "./components";
@@ -40,13 +43,11 @@ import {
   VNavbarBurger,
   VNavbarDropdown,
   VNavbarItem,
-  VPagination,
   VProgress,
+  VSteps,
+  VStepItem,
   VSelect,
   VSidebar,
-  VSlider,
-  VStepItem,
-  VSteps,
   VSwitch,
   VTab,
   VTable,
@@ -54,8 +55,10 @@ import {
   VTag,
   VTextarea,
   VTimeline,
-  VTooltip,
   VUpload,
+  VPagination,
+  VSlider,
+  VTooltip,
 } from "@pathscale/vue3-ui";
 import App from "./App.vue";
 
@@ -63,8 +66,8 @@ import "@bulvar/bulma/css/bulma.css";
 import "@pathscale/bulma-extensions-css-var";
 
 import "@pathscale/fonts-metroclean";
-import Icon from "./Icon.vue";
 import { router } from "./router";
+import Icon from "./Icon.vue";
 
 import "./assets/css/globals.css";
 import "./assets/css/theme-colors.css";
@@ -115,6 +118,10 @@ app.component("VStepItem", VStepItem);
 app.component("VSlider", VSlider);
 app.component("VTooltip", VTooltip);
 app.component("Icon", Icon);
+
+app.component("Modal", Modal);
+app.component("Loader", Loader);
+app.component("CTable", CustomTable);
 
 app.component("CustomHeader", CustomHeader);
 app.component("CustomFooter", CustomFooter);

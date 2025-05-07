@@ -26,17 +26,6 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
     },
   },
   {
-    isMenuItem: false,
-    title: "Honey",
-    icon: "orders",
-    route: {
-      component: Honey as unknown as Component,
-      name: "honey",
-      path: "/honey",
-    },
-  },
-
-  {
     isMenuItem: true,
     title: "Strategies",
     icon: "elementor",

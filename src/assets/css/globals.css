@@ -1,30 +1,30 @@
 @font-face {
-  font-family: "FivoSans";
-  src: url("../fonts/FivoSans-Heavy-Oblique.woff") format("woff");
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Heavy-Oblique.woff') format('woff');
   font-weight: 900;
   font-style: oblique;
 }
 @font-face {
-  font-family: "FivoSans";
-  src: url("../fonts/FivoSans-Bold-Oblique.woff") format("woff");
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Bold-Oblique.woff') format('woff');
   font-weight: bold;
   font-style: oblique;
 }
 @font-face {
-  font-family: "FivoSans";
-  src: url("../fonts/FivoSans-Bold.woff") format("woff");
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "FivoSans";
-  src: url("../fonts/FivoSans-Regular.woff") format("woff");
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 :root {
-  /* --navbar-background-color: var(--blm-nav-color);
+ /* --navbar-background-color: var(--blm-nav-color);
  --navbar-tab-active-color: var(--blm-tabs-link-act-clr);
  --navbar-tab-link-color: var(--blm-tabs-link-clr);
  --navbar-tab-hover-color: var(--blm-tabs-link-hov-clr);
@@ -36,8 +36,9 @@
  --submenu2-tab-active-color: var(--blm-tabs-link-act-clr);
  --submenu2-tab-link-color: var(--blm-tabs-link-clr);
  --submenu2-tab-hover-color: var(--blm-tabs-link-hov-clr); */
-  --section-padding-desktop: 3rem 3rem;
+ --section-padding-desktop: 3rem 3rem;
 }
+
 
 html {
   scroll-behavior: smooth;
@@ -106,7 +107,7 @@ body {
 }
 
 .tabs.is-boxed a {
-  border-radius: 0 !important;
+    border-radius: 0 !important;
 }
 
 .has-border-gray {
@@ -190,7 +191,7 @@ mb-5 {
 }
 
 .is-family-fivo {
-  font-family: "FivoSans", sans-serif;
+  font-family: 'FivoSans', sans-serif;
 }
 
 .is-oblique {
@@ -235,9 +236,8 @@ table > thead > tr > td {
   height: 15px;
 }
 
-input[type="range"].slider:not([orient="vertical"]).has-output + output,
-input[type="range"].slider:not([orient="vertical"]).has-output-tooltip
-  + output {
+input[type='range'].slider:not([orient='vertical']).has-output + output,
+input[type='range'].slider:not([orient='vertical']).has-output-tooltip + output {
   min-width: 3rem;
   width: max-content !important;
 }
@@ -253,6 +253,7 @@ input[type="range"].slider:not([orient="vertical"]).has-output-tooltip
 .tag:not(body).is-dark {
   /* background-color: var(--neutral-gray) !important; */
 }
+
 
 .fixed-table table {
   table-layout: fixed;

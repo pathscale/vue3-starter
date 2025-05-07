@@ -1,5 +1,10 @@
-const useLogout = () => {
- return {}
-}
+import { useMutation } from "@tanstack/vue-query";
 
-export { useLogout }
+const useLogout = () => {
+  const mutation = useMutation({
+    mutationFn: async () => {},
+  });
+  return mutation;
+};
+
+export { useLogout };

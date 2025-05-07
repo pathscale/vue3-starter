@@ -1,17 +1,18 @@
 <script lang="ts" setup>
-import { onMounted } from "vue";
-import { useRouter } from "vue-router";
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
+const router = useRouter()
 
 onMounted(() => {
-  const userToken = localStorage.getItem("userToken");
+  const userToken = localStorage.getItem('userToken')
   if (userToken) {
     router.push({
-      name: "dashboardHome",
-    });
+      name: 'dashboardHome'
+    })
   }
-});
+})
+
 </script>
 
 <template>

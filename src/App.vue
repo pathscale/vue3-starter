@@ -1,13 +1,20 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue'
 import { setTheme, dark } from '~/theming'
-import wssConfigure from '~/api/wssConfigure'
+import { $toast } from './main'
+import wssConfigure, { cleanupLocalStorageOnLogout } from '~/api/wssConfigure'
 import { useLogin } from '~/mutations'
 
 wssConfigure()
 const { init } = useLogin()
 onMounted(() => {
   setTheme(dark)
+  init.mutate(undefined, {
+    onError: error => {
+      $toast.error(error.message)
+      cleanupLocalStorageOnLogout()
+    }
+  })
 })
 </script>
 

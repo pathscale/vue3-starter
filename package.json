@@ -9,7 +9,14 @@
     "start": "rollup -c -w --environment NODE_ENV:development",
     "lint": "biome lint --write .",
     "lint:fix": "biome check --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "schema": "node --experimental-modules schema.mjs"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "biome check --write",
+      "biome lint --write"
+    ]
   },
   "devDependencies": {
     "@babel/core": "7.26.10",

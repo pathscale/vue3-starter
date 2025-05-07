@@ -1,7 +1,19 @@
-import wssAdapter from './wss-adapter/wssAdapter'
-import auth from './services/auth.service'
-import app from './services/app.service'
-import errors from '../../docs/error_codes/error_codes.json'
+import wssAdapter from "./wss-adapter/wssAdapter";
+import auth from "./services/auth.service";
+import app from "./services/app.service";
+import { router } from "~/router";
+import errors from "../../docs/error_codes/error_codes.json";
+
+import { $toast } from "~/main";
+
+export const cleanupLocalStorageOnLogout = () => {
+  localStorage.removeItem("username");
+  localStorage.removeItem("userToken");
+  localStorage.removeItem("account");
+  localStorage.removeItem("userId");
+  localStorage.removeItem("adminToken");
+  router.replace({ name: "login" });
+};
 
 const wssConfigure = () => {
   wssAdapter.configure({
@@ -10,21 +22,24 @@ const wssConfigure = () => {
       auth: {
         ...auth,
         onDisconnect() {
-          console.log('disconnected from auth!')
+          console.log("disconnected from auth!");
         },
       },
       app: {
         ...app,
         onDisconnect() {
-          console.log('disconnected from app!')
+          console.log("disconnected from app!");
+          $toast.error("You have been disconnected from the server");
+          setTimeout(() => {
+            cleanupLocalStorageOnLogout();
+          }, 2000);
         },
-        subscriptions: {
-        },
+        subscriptions: {},
       },
     },
     errors,
-  })
-  console.log('wss client configured')
-}
+  });
+  console.log("wss client configured");
+};
 
-export default wssConfigure
+export default wssConfigure;

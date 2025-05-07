@@ -1,11 +1,15 @@
-import type { CustomHeader } from "./components";
-declare module "vue" {
+import type { Loader, Modal, CustomTable, CustomHeader } from './components'
+declare module 'vue' {
   export interface GlobalComponents {
-    CustomHeader: typeof CustomHeader;
+    Modal: typeof Modal
+    CTable: typeof CustomTable
+    Loader: typeof Loader
+    CustomHeader: typeof CustomHeader
   }
 }
-declare module "*.vue" {
-  import Vue from "vue";
+declare module '*.vue' {
+  import Vue from 'vue'
 
-  export default Vue;
+  export default Vue
 }
+

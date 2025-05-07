@@ -1,19 +1,23 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { computed, onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-const route = useRoute();
-const router = useRouter();
-const routeName = computed(() => route.name as unknown as string);
+import { ThemeBuilder } from '~/components'
+
+const route = useRoute()
+const router = useRouter()
+const routeName = computed(() => route.name as unknown as string)
 
 onMounted(() => {
-  // const userToken = localStorage.getItem("userToken");
-  // if (userToken) {
-  //   router.push({
-  //     name: "dashboardHome",
-  //   });
-  // }
-});
+  const userToken = localStorage.getItem('userToken')
+  if (userToken) {
+    router.push({
+      name: 'dashboardHome'
+    })
+  }
+})
+
+
 </script>
 
 <template>
