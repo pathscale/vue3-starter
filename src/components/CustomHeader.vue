@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { cleanupLocalStorageOnLogout } from "~/api/wssConfigure";
 import { useRoute, useRouter } from "vue-router";
 import { Submenu1, Submenu2 } from "~/components";
 import { DashboardRoutes } from "~/router/routes";
@@ -18,6 +19,7 @@ const route = useRoute();
 const showStrategies = computed(() => route.path.includes("strategies"));
 
 const logout = () => {
+  cleanupLocalStorageOnLogout();
   router.push("/login");
 };
 
