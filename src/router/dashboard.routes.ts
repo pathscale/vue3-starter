@@ -55,7 +55,7 @@ export const DashboardRoutes: RoutesTypeCustom[] = [
     route: {
       component: AppDebug as unknown as Component,
       name: "appDebug",
-      path: "/settings/appDebug",
+      path: "/settings",
     },
   },
   {
