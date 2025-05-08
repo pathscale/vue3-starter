@@ -126,6 +126,7 @@ app.component("CTable", CustomTable);
 app.component("CustomHeader", CustomHeader);
 app.component("CustomFooter", CustomFooter);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.use(Toaster as any);
 
 app.use(router);

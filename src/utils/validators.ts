@@ -1,7 +1,17 @@
 import type { Ref } from 'vue'
 import { ref } from 'vue'
-import { t } from '~/i18n'
 import { numberPrecision } from './formatters'
+
+type ValidationError = {
+  $message: string;
+  [key: string]: string; 
+};
+
+type FormField = {
+  $dirty: boolean;
+  $anyInvalid: boolean;
+  $errors: ValidationError[];
+};
 
 export const emailValidation =
   /^(([^<>()\\[\].,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[(?:\d{1,3}\.){3}\d{1,3}])|(([a-zA-Z\-\d]+\.)+[a-zA-Z]{2,}))$/
@@ -121,8 +131,7 @@ export const useUsername = (username = '') => ({
   // },
 })
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useErrorMessage = (form: Record<string, any>) => (field: string) => {
+export const useErrorMessage = (form: Record<string, FormField>) => (field: string) => {
   const error = form[field].$dirty && form[field].$anyInvalid ? form[field].$errors[0] : null
   return error
 }

@@ -29,7 +29,7 @@ const useTable = <T extends Record<string, any>>(
   generateColumns()
 
   const populateTable = () => {
-    if (data?.value && data?.value[key]) {
+    if (data?.value?.[key]) {
       const sortBy = datagrid.value.sortBy
       const sortAscendant = datagrid.value.sortAscendant
       datagrid.value = new DataGrid()
@@ -48,7 +48,7 @@ const useTable = <T extends Record<string, any>>(
     populateTable()
   })
 
-  watch([() => data?.value && data?.value[key]], () => {
+  watch([() => data?.value?.[key]], () => {
     populateTable()
   })
 

@@ -91,7 +91,7 @@ const connectHandler = <T>(
     }
 
     store.sessions[serviceName].onerror = (event) => {
-      console.log('onError: ' + event)
+      console.log(`onError: ${event}`)
     }
   }) as Promise<T>
 }
@@ -130,7 +130,7 @@ const sendHandler = (
       resolve,
       reject,
       toHandler: setTimeout(() => {
-        reject(new Error(methodName + ' took too long, aborting'))
+        reject(new Error(`${methodName} took too long, aborting`))
       }, store.timeout),
       methodName,
     }

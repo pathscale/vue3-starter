@@ -39,7 +39,7 @@ function onSubmit() {
   signup.mutate({
     username: form.username.$value,
     password: form.password.$value as string,
-    email: encodeURIComponent(form.email.$value!),
+    email: encodeURIComponent(form.email.$value ?? ""),
     agreedPrivacy: true,
     agreedTos: true,
   })
