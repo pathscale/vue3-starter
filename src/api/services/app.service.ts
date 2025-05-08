@@ -1,13 +1,16 @@
-import { IService } from '@pathscale/wss-adapter/types'
+import type { IService } from "@pathscale/wss-adapter/types";
+import config from "~/config";
+
+import methods from "./user.json";
+import adminMethods from "./admin.json";
+
+const appServer = localStorage.getItem("appServer") || config.appServer;
 
 const service: IService = {
-  remote: 'wss://api.salesaction.pk:8448',
-  methods: {
-    20000: {
-      name: 'Init',
-      parameters: ['userPublicId', 'token', 'deviceId', 'deviceOS', 'organizationPublicId'],
-    },
-  },
-}
+  remote: appServer,
+  methods: Object.assign(methods, adminMethods),
+};
 
-export default service
+export { appServer };
+
+export default service;

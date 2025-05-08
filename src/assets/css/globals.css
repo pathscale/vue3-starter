@@ -1,13 +1,64 @@
+@font-face {
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Heavy-Oblique.woff') format('woff');
+  font-weight: 900;
+  font-style: oblique;
+}
+@font-face {
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Bold-Oblique.woff') format('woff');
+  font-weight: bold;
+  font-style: oblique;
+}
+@font-face {
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FivoSans';
+  src: url('../fonts/FivoSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+ /* --navbar-background-color: var(--blm-nav-color);
+ --navbar-tab-active-color: var(--blm-tabs-link-act-clr);
+ --navbar-tab-link-color: var(--blm-tabs-link-clr);
+ --navbar-tab-hover-color: var(--blm-tabs-link-hov-clr);
+ --submenu1-background-color: var(--blm-nav-color);
+ --submenu1-tab-active-color: var(--blm-tabs-link-act-clr);
+ --submenu1-tab-link-color: var(--blm-tabs-link-clr);
+ --submenu1-tab-hover-color: var(--blm-tabs-link-hov-clr);
+ --submenu2-background-color: var(--blm-nav-color);
+ --submenu2-tab-active-color: var(--blm-tabs-link-act-clr);
+ --submenu2-tab-link-color: var(--blm-tabs-link-clr);
+ --submenu2-tab-hover-color: var(--blm-tabs-link-hov-clr); */
+ --section-padding-desktop: 3rem 3rem;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
 html,
 body {
   padding: 0;
+  padding-top: env(save-area-inset-top);
   margin: 0;
   height: 100%;
+  /* background-color: var(--blm-black-bis); */
+  color: var(--blm-black);
 }
 
 body {
   min-height: 100vh;
   display: flex;
+  font-size: 14px !important;
 }
 
 #app {
@@ -18,4 +69,192 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.navbar-burger {
+  color: white !important;
+}
+
+.navbar {
+  z-index: 2147483647;
+}
+
+.is-flex-1 {
+  flex: 1;
+}
+.is-flex-2 {
+  flex: 2;
+}
+
+.is-100-width {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-max {
+  width: max-content;
+}
+
+.rounded {
+  border-radius: var(--blm-box-radius);
+}
+
+.tabs.is-boxed a {
+    border-radius: 0 !important;
+}
+
+.has-border-gray {
+  border: solid lightgray 1px !important;
+}
+
+.has-border-bottom-gray {
+  border-bottom: solid lightgray 1px !important;
+}
+
+.has-border-right-gray {
+  border-right: solid lightgray 1px !important;
+}
+
+.has-border-left-gray {
+  border-left: solid lightgray 1px !important;
+}
+
+.has-border-top-gray {
+  border-top: solid lightgray 1px !important;
+}
+
+.sidebar-mobile .v-sidebar .sidebar-content.is-fullheight {
+  width: 100% !important;
+}
+
+.sticky-table {
+  height: 500px !important;
+}
+
+.is-overflow-auto {
+  overflow: auto;
+}
+
+.pl-3 {
+  padding-left: 0.75rem !important;
+}
+
+.ml-5 {
+  margin-left: 1.5rem !important;
+}
+.gap-6 {
+  gap: 2.5rem;
+}
+.gap-5 {
+  gap: 1.5rem;
+}
+.gap-3 {
+  gap: 1rem;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap {
+  gap: 0.25rem;
+}
+.p-6 {
+  padding: 2.5rem !important;
+}
+.m-6 {
+  margin: 2.5rem;
+}
+.my-6 {
+  margin-top: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+}
+.mb-6 {
+  margin-bottom: 2.5rem !important;
+}
+mb-5 {
+  margin-bottom: 1.5rem !important;
+}
+
+.absolute,
+.is-absolute {
+  position: absolute;
+}
+
+.is-fixed {
+  position: fixed;
+}
+
+.is-family-fivo {
+  font-family: 'FivoSans', sans-serif;
+}
+
+.is-oblique {
+  font-style: oblique;
+}
+
+.is-leading-none {
+  line-height: 100%;
+}
+
+.is-leading-loose {
+  line-height: 200%;
+}
+
+.is-align-baseline {
+  vertical-align: baseline;
+}
+
+.is-float-right {
+  float: right;
+}
+
+.is-float-left {
+  float: left;
+}
+
+.has-text-weight-black {
+  font-weight: 900;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+table > thead > tr > td {
+  background-color: transparent !important;
+}
+
+.input-icon {
+  fill: lightgray;
+  width: 15px;
+  height: 15px;
+}
+
+input[type='range'].slider:not([orient='vertical']).has-output + output,
+input[type='range'].slider:not([orient='vertical']).has-output-tooltip + output {
+  min-width: 3rem;
+  width: max-content !important;
+}
+
+.field-label {
+  margin-right: 1rem !important;
+}
+
+.w-100 {
+  width: 100px;
+}
+
+.tag:not(body).is-dark {
+  /* background-color: var(--neutral-gray) !important; */
+}
+
+
+.fixed-table table {
+  table-layout: fixed;
 }

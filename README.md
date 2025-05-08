@@ -8,10 +8,6 @@
 
 You can quickstart your project by [using this template](https://github.com/pathscale/vue3-starter/generate)
 
-If you prefer the command line, you can install the template using [degit](https://github.com/Rich-Harris/degit)
-
-    degit pathscale/vue3-starter vue3-starter
-
 Alternatively you can use the old fashioned
 
     git clone https://github.com/pathscale/vue3-starter.git --depth 1
@@ -54,7 +50,6 @@ bun run build
 ```bash
 bun run lint
 ```
-
 ## Development Notes
 
 - This project uses Bun as the package manager and runtime environment

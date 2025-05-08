@@ -1,5 +1,6 @@
-import wssAdapter from '@pathscale/wss-adapter'
+import wssAdapter from './wss-adapter/wssAdapter'
 
-const api = wssAdapter.services
+const api = wssAdapter.sessions
+const service = wssAdapter.services
 
-export default api
+export { api, service }

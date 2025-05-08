@@ -1,6 +1,7 @@
 {
-  "css.validate": false,
-  "editor.quickSuggestions": {
-    "strings": true
-  }
+  "i18n-ally.localesPaths": ["src/i18n", "src/i18n/locales"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "vue.features.codeActions.enable": false,
+  "svg.preview.background": "dark-transparent",
+  "editor.inlineSuggest.showToolbar": "always"
 }

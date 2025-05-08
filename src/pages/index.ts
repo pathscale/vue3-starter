@@ -1,13 +1,27 @@
-export { default as Wallet } from './App/Wallet/Wallet.vue'
+// Dashboard Pages
 
-export { default as Loans } from './App/Loans/Loans.vue'
+export { default as DashboardHome } from "./Dashboard/Home/index.page.vue";
 
-export { default as Account } from './App/Account/Account.vue'
+export { default as Strategies } from "./Dashboard/Strategies/index.page.vue";
 
-export { default as Settings } from './App/Settings/Settings.vue'
+export { default as AppDebug } from "./Dashboard/Settings/AppDebug/index.page.vue";
 
-export { default as Card } from './App/Card/Card.vue'
+export { default as Honey } from "./Dashboard/Dashboard/index.page.vue";
 
-// Public pages
+export { default as Signals } from "./Dashboard/Strategies/Signals/index.page.vue";
 
-export { default as Login } from './Auth/Login/Login.vue'
+export { default as Orders } from "./Dashboard/Strategies/Orders/index.page.vue";
+
+export { default as Config } from "./Dashboard/Strategies/Config/index.page.vue";
+
+// Public Pages
+
+export { default as Login } from "./Auth/Login/index.page.vue";
+
+export { default as Signup } from "./Auth/Signup/index.page.vue";
+
+export { default as SwitchServer } from "./Auth/SwitchServer/index.page.vue";
+
+export { default as ForgotPassword } from "./Auth/ForgotPassword/index.page.vue";
+
+export { default as Home } from "./Public/Home/index.page.vue";

@@ -1,48 +1,36 @@
-import Main from '~/layouts/Main.layout.vue'
-import { Wallet, Loans, Account, Card, Settings, Login } from '~/pages'
+import type { RouteRecordRaw } from "vue-router";
+import { DashboardRoutes } from "./dashboard.routes";
+import { normalizeRoutes } from "./utils";
 
-const routes = [
+import authRoutes from "./auth.routes";
+import publicRoutes from "./public.routes";
+
+import { AuthLayout, DashboardLayout, PublicLayout } from "~/layouts";
+
+import type { Component } from "vue";
+
+const normalizedDashboardRoutes = normalizeRoutes(
+  DashboardRoutes,
+);
+
+const routes: RouteRecordRaw[] = [
   {
-    path: '/',
-    component: Main,
-    children: [
-      {
-        name: 'login',
-        path: '',
-        component: Login,
-      },
-      {
-        name: 'wallet',
-        path: 'wallet',
-        component: Wallet,
-        meta: { private: true },
-      },
-      {
-        name: 'loans',
-        path: 'loans',
-        component: Loans,
-        meta: { private: true },
-      },
-      {
-        name: 'account',
-        path: 'account',
-        component: Account,
-        meta: { private: true },
-      },
-      {
-        name: 'card',
-        path: 'card',
-        component: Card,
-        meta: { private: true },
-      },
-      {
-        name: 'settings',
-        path: 'settings',
-        component: Settings,
-        meta: { private: true },
-      },
-    ],
+    component: PublicLayout as unknown as Component,
+    path: "/",
+    children: [...publicRoutes],
   },
-]
+  {
+    component: AuthLayout as unknown as Component,
+    path: "/",
+    children: [...authRoutes],
+  },
+  {
+    path: "/dashboard",
+    component: DashboardLayout as unknown as Component,
+    children: [...normalizedDashboardRoutes],
+  },
+];
 
-export default routes
+export { DashboardRoutes };
+
+export default routes;

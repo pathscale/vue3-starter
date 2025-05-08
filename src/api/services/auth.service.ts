@@ -1,13 +1,12 @@
-import { IService } from '@pathscale/wss-adapter/types'
+import type { IService } from '@pathscale/wss-adapter/types'
+
+import config from '~/config'
+
+import methods from './auth.json'
 
 const service: IService = {
-  remote: 'wss://api.salesaction.pk:8447',
-  methods: {
-    10020: {
-      name: 'Login',
-      parameters: ['username', 'password', 'serviceCode', 'deviceId', 'deviceOS'],
-    },
-  },
+  remote: config.authServer,
+  methods,
 }
 
 export default service

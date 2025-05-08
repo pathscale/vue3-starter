@@ -1,25 +1,27 @@
-<script lang="ts">
+<script lang="ts" setup>
 import { onMounted } from 'vue'
+import { setTheme, dark } from '~/theming'
+import { $toast } from './main'
+import wssConfigure, { cleanupLocalStorageOnLogout } from '~/api/wssConfigure'
+import { useLogin } from '~/mutations'
 
-import { setTheme, light } from '~/theming'
-import wssConfigure from '~/api/wssConfigure'
-
-export default {
-  name: 'App',
-  setup() {
-    wssConfigure()
-    onMounted(() => {
-      setTheme(light)
-    })
-  },
-}
+wssConfigure()
+const { init } = useLogin()
+onMounted(() => {
+  setTheme(dark)
+  init.mutate(undefined, {
+    onError: error => {
+      $toast.error(error.message)
+      cleanupLocalStorageOnLogout()
+    }
+  })
+})
 </script>
-
 
 <template>
   <router-view />
-  <!-- rollup-plugin-vue3-ui-css-purge whitelist -->
-  <div v-if="false">
-    <v-button class="is-loading" />
+  <!-- css purger whitelist -->
+  <div v-if="false" class="v-toast-container v-toast-container--bottom is-hidden">
+    <div class="notification is-success is-danger is-warning v-toast--bottom-right" />
   </div>
 </template>

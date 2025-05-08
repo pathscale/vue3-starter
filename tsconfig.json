@@ -4,6 +4,8 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "allowJs": true,
+    "maxNodeModuleJsDepth": 2,
     "importHelpers": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -22,8 +24,14 @@
       "@vue/runtime-core/dist/runtime-core",
       "@vue/runtime-dom/dist/runtime-dom",
       "node"
-    ]
+    ],
+    "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/utils/api.js"],
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/utils/api.js"
+  ],
   "exclude": ["node_modules"]
 }
