@@ -91,9 +91,7 @@ export function formatNextClaimAt(n: number) {
 }
 
 export function formatCamelCase(s: string) {
-  return s.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
-    return str.toUpperCase()
-  })
+  return s.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase())
 }
 
 export const titleCase = (s: string) =>
@@ -302,7 +300,7 @@ export function formatTimestamp(timestamp: number, timeOnly = true) {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}.${milliseconds}`
 }
 
-export function formatNumber(value: number, decimalPlaces: number = 4): string {
+export function formatNumber(value: number, decimalPlaces = 4): string {
   return value?.toFixed(decimalPlaces).replace(/\.?0+$/, '')
 }
 export function stringToHexColor(str: string): string {

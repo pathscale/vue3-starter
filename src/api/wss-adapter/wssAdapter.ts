@@ -71,7 +71,7 @@ const connectHandler = <T>(
 ) => {
   return new Promise((resolve, reject) => {
     store.sessions[serviceName] = new WebSocket(remote || serviceConfig.remote, payload)
-    store.sessions[serviceName].onmessage = function (event: { data: string }) {
+    store.sessions[serviceName].onmessage = (event: { data: string }) => {
       const response = JSON.parse(event.data)
 
       if (response.code) {
@@ -90,7 +90,7 @@ const connectHandler = <T>(
       reject(new Error(`code: ${event.code}, reason: ${event.reason}, wasClean: ${event.wasClean}`))
     }
 
-    store.sessions[serviceName].onerror = function (event) {
+    store.sessions[serviceName].onerror = (event) => {
       console.log('onError: ' + event)
     }
   }) as Promise<T>

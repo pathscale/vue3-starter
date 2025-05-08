@@ -78,4 +78,4 @@ interface IStore {
   pendingPromises: IPendingPromises
 }
 
-export { IStore, IWssAdapter, IServiceConfig, IConfiguration, IServices, IService }
+export type { IStore, IWssAdapter, IServiceConfig, IConfiguration, IServices, IService }
